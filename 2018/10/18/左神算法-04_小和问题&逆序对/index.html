@@ -89,26 +89,25 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="爱吃jelly的Jelly" type="application/atom+xml" />
 
 
 
 
 
-<meta name="description" content="##剖析递归行为和递归行为时间复杂度的估算一个递归行为的例子">
+
+<meta name="description" content="Nothing is easier than to deceive oneself">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="左神算法-03-master公式&amp;归并排序">
-<meta property="og:url" content="http://yoursite.com/2018/10/17/左神算法-03-master公式-快排/index.html">
+<meta property="og:title" content="左神算法-04_小和问题和逆序对问题">
+<meta property="og:url" content="http://yoursite.com/2018/10/18/左神算法-04_小和问题&逆序对/index.html">
 <meta property="og:site_name" content="爱吃jelly的Jelly">
-<meta property="og:description" content="##剖析递归行为和递归行为时间复杂度的估算一个递归行为的例子">
+<meta property="og:description" content="Nothing is easier than to deceive oneself">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/1024555/201612/1024555-20161218163120151-452283750.png">
-<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539842937061&di=6b249c0c581e3c1e114006a30a1a6385&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F09%2F18%2F2157de921b8f6af.jpg">
-<meta property="og:updated_time" content="2018-10-18T03:55:25.154Z">
+<meta property="og:updated_time" content="2018-10-18T08:26:16.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="左神算法-03-master公式&amp;归并排序">
-<meta name="twitter:description" content="##剖析递归行为和递归行为时间复杂度的估算一个递归行为的例子">
-<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/1024555/201612/1024555-20161218163120151-452283750.png">
+<meta name="twitter:title" content="左神算法-04_小和问题和逆序对问题">
+<meta name="twitter:description" content="Nothing is easier than to deceive oneself">
 
 
 
@@ -138,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/17/左神算法-03-master公式-快排/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/18/左神算法-04_小和问题&逆序对/"/>
 
 
 
 
 
-  <title>左神算法-03-master公式&归并排序 | 爱吃jelly的Jelly</title>
+  <title>左神算法-04_小和问题和逆序对问题 | 爱吃jelly的Jelly</title>
   
 
 
@@ -325,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/左神算法-03-master公式-快排/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/左神算法-04_小和问题&逆序对/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Big Jelly">
@@ -342,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">左神算法-03-master公式&归并排序</h1>
+          <h1 class="post-title" itemprop="name headline">左神算法-04_小和问题和逆序对问题</h1>
         
 
         <div class="post-meta">
@@ -354,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T20:53:54+08:00">
-                2018-10-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T10:53:54+08:00">
+                2018-10-18
               </time>
             
 
@@ -408,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  808
+                  0
                 </span>
               
 
@@ -424,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -445,30 +444,7 @@
       
 
       
-        <p>##剖析递归行为和递归行为时间复杂度的估算<br><br>一个递归行为的例子<br><a id="more"></a></p>
-<h3 id="master公式的使用"><a href="#master公式的使用" class="headerlink" title="master公式的使用"></a><strong>master</strong>公式的使用</h3><blockquote>
-<p>T(N) = a*T(N/b) + O(N^d)</p>
-</blockquote>
-<p>T(N)是样本量为N时的时间复杂度，N/b是划分成子问题的样本量，子问题发生了a次，后面O(N^d)是除去调用子过程之外的时间复杂度。</p>
-<p>比如要求一个数组的最大值：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMax</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L == R) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr[L];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (L + R) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> maxLeft = getMax(arr, L, mid);</span><br><span class="line">    <span class="keyword">int</span> maxRight = getMax(arr, mid + <span class="number">1</span>, R);</span><br><span class="line">    <span class="keyword">return</span> Math.max(maxLeft, maxRight);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//master公式： T(N) = 2*T(N/2) + O(1);</span></span><br></pre></td></tr></table></figure></p>
-<p>&amp;nbsp&amp;nbsp这里划分成的递归子过程的样本量是N/2，这个相同的样本量发生了2次，除去调用子过程之外的时间复杂度是O(1),因为求最大值和判断if复杂度是O(1),所以N^d=1，所以d=0.</p>
-<p>那么根据如下公式判断</p>
-<ol>
-<li>log(b,a) &gt; d -&gt; 复杂度为O(N^log(b,a)) </li>
-<li>log(b,a) = d -&gt; 复杂度为O(N^d * logN)</li>
-<li>log(b,a) &lt; d -&gt; 复杂度为O(N^d)</li>
-</ol>
-<p><br>这里log(b, a)(以b为底a的对数) = log(2, 2)=1 &gt; d=0</p>
-<p>所以复杂度为O(N^log(2, 2))===&gt;O(N)，因此也就可以解释为什么归并排序的时间复杂度为nlogn了<br><br></p>
-<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><blockquote>
-<p>归并排序（MERGE-SORT）是利用归并的思想实现的排序方法，该算法采用经典的分治（divide-and-conquer）策略（分治法将问题分(divide)成一些小的问题然后递归求解，而治(conquer)的阶段则将分的阶段得到的各答案”修补”在一起，即分而治之)。  </p>
-</blockquote>
-<center><img src="https://images2015.cnblogs.com/blog/1024555/201612/1024555-20161218163120151-452283750.png" style=" width:460px;height:200 px"></center>
-
-<p>可以看到这种结构很像一棵完全二叉树，本文的归并排序我们采用递归去实现（也可采用迭代的方式去实现）。分阶段可以理解为就是递归拆分子序列的过程，递归深度为log2n。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    mergeSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = l + ((r - l) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    mergeSort(arr, l, mid);</span><br><span class="line">    mergeSort(arr, mid + <span class="number">1</span>, r);</span><br><span class="line">    merge(arr, l, mid, r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> m, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] help = <span class="keyword">new</span> <span class="keyword">int</span>[r - l + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p1 = l;</span><br><span class="line">    <span class="keyword">int</span> p2 = m + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= m &amp;&amp; p2 &lt;= r) &#123;</span><br><span class="line">        help[i++] = arr[p1] &lt; arr[p2] ? arr[p1++] :arr[p2++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= m) &#123;</span><br><span class="line">        help[i++] = arr[p1++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p2 &lt;= r) &#123;</span><br><span class="line">        help[i++] = arr[p2++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; help.length; i++) &#123;</span><br><span class="line">        arr[l + i] = help[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<p>###总结：<br>归并排序是稳定排序，它也是一种十分高效的排序，能利用完全二叉树特性的排序一般性能都不会太差。java中Arrays.sort()采用了一种名为TimSort的排序算法，就是归并排序的优化版本。从上文的图中可看出，每次合并操作的平均时间复杂度为O(n)，而完全二叉树的深度为|log2n|。总的平均时间复杂度为O(nlogn)。而且，归并排序的最好，最坏，平均时间复杂度均为O(nlogn)。<br><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539842937061&di=6b249c0c581e3c1e114006a30a1a6385&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F09%2F18%2F2157de921b8f6af.jpg" align="right" style=" width:300px;height:200 px"></p>
-
+        
       
     </div>
     
@@ -493,12 +469,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/17/左神算法-03-master公式-快排/">左神算法-03-master公式&归并排序</a></p>
+  <p><span>本文标题:</span><a href="/2018/10/18/左神算法-04_小和问题&逆序对/">左神算法-04_小和问题和逆序对问题</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Big Jelly 的个人博客">Big Jelly</a></p>
-  <p><span>发布时间:</span>2018年10月17日 - 20:53</p>
-  <p><span>最后更新:</span>2018年10月18日 - 11:55</p>
-  <p><span>原始链接:</span><a href="/2018/10/17/左神算法-03-master公式-快排/" title="左神算法-03-master公式&归并排序">http://yoursite.com/2018/10/17/左神算法-03-master公式-快排/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/17/左神算法-03-master公式-快排/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年10月18日 - 10:53</p>
+  <p><span>最后更新:</span>2018年10月18日 - 16:26</p>
+  <p><span>原始链接:</span><a href="/2018/10/18/左神算法-04_小和问题&逆序对/" title="左神算法-04_小和问题和逆序对问题">http://yoursite.com/2018/10/18/左神算法-04_小和问题&逆序对/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/18/左神算法-04_小和问题&逆序对/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -521,6 +497,35 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Big Jelly 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Big Jelly 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
@@ -541,8 +546,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/17/左神算法-02-简单排序/" rel="next" title="左神算法-02_简单排序">
-                <i class="fa fa-chevron-left"></i> 左神算法-02_简单排序
+              <a href="/2018/10/17/左神算法-03_master公式&归并排序/" rel="next" title="左神算法-03-master公式&归并排序">
+                <i class="fa fa-chevron-left"></i> 左神算法-03-master公式&归并排序
               </a>
             
           </div>
@@ -550,10 +555,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/17/左神算法-03-master公式&归并排序/" rel="prev" title="左神算法-03-master公式&快排">
-                左神算法-03-master公式&快排 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -583,6 +584,11 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDM2MS8xNjg4OA=="></div>
+    </div>
+
+  
 
 
 
@@ -605,17 +611,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -665,13 +662,50 @@
           </nav>
 
           
-
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
+
+          
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.dooccn.com/" title="在线编辑代码" target="_blank">在线编辑代码</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.chuangzaoshi.com/code" title="创造狮导航" target="_blank">创造狮导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://24mail.chacuo.net/?utm_campaign=haruki&utm_content=note&utm_medium=reader_share&utm_source=qq" title="24Mail" target="_blank">24Mail</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://e.xitu.io/" title="掘金酱" target="_blank">掘金酱</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -679,22 +713,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#master公式的使用"><span class="nav-number">1.</span> <span class="nav-text">master公式的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number"></span> <span class="nav-text">归并排序</span></a></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -716,29 +734,23 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Big Jelly</span>
 
-  
 </div>
 
 <div class="powered-by">
+
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">3k</span>
+  
+  <span class="post-meta-divider">|</span>
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
+  Visitors to this site: <span id="busuanzi_value_site_uv"></span>
 </span>
 </div>
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="#">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -885,6 +897,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
