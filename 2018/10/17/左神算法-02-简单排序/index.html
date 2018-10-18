@@ -94,22 +94,23 @@
 
 
 
-<meta name="description" content="###概述排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。我们这里说说八大排序就是内部排序。">
+<meta name="description" content="##概述排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。我们这里说说八大排序就是内部排序。">
 <meta name="keywords" content="算法,排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="左神算法-02_简单排序">
 <meta property="og:url" content="http://yoursite.com/2018/10/17/左神算法-02-简单排序/index.html">
 <meta property="og:site_name" content="爱吃jelly的Jelly">
-<meta property="og:description" content="###概述排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。我们这里说说八大排序就是内部排序。">
+<meta property="og:description" content="##概述排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。我们这里说说八大排序就是内部排序。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/05/ChMkJ1hsssKIdQ-FAA3Mbi9WrWYAAZFxQF9lmYADcyG867.jpg">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201207/17/1342514529_5795.jpg">
+<meta property="og:image" content="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/05/ChMkJ1hsssKIdQ-FAA3Mbi9WrWYAAZFxQF9lmYADcyG867.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006zweohgy1fw6uruj33yj30g6060glp.jpg">
-<meta property="og:updated_time" content="2018-10-17T12:28:25.367Z">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539842937061&di=6b249c0c581e3c1e114006a30a1a6385&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F09%2F18%2F2157de921b8f6af.jpg">
+<meta property="og:updated_time" content="2018-10-18T03:34:11.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="左神算法-02_简单排序">
-<meta name="twitter:description" content="###概述排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。我们这里说说八大排序就是内部排序。">
-<meta name="twitter:image" content="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/05/ChMkJ1hsssKIdQ-FAA3Mbi9WrWYAAZFxQF9lmYADcyG867.jpg">
+<meta name="twitter:description" content="##概述排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。我们这里说说八大排序就是内部排序。">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201207/17/1342514529_5795.jpg">
 
 
 
@@ -446,23 +447,81 @@
       
 
       
-        <p>###概述<br><img src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/05/ChMkJ1hsssKIdQ-FAA3Mbi9WrWYAAZFxQF9lmYADcyG867.jpg" alt="风景图片"><br>排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。<br>我们这里说说八大排序就是内部排序。<br>  <a id="more"></a><br><img src="http://img.my.csdn.net/uploads/201207/17/1342514529_5795.jpg" alt="八大排序算法"></p>
+        <p>##概述<br>排序有内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。<br>我们这里说说八大排序就是内部排序。<br><a id="more"></a></p>
+<center><img src="http://img.my.csdn.net/uploads/201207/17/1342514529_5795.jpg" width="400" height="260"></center>
+
 <p><em>当n较大，则应采用时间复杂度为O(nlog2n)的排序方法：快速排序、堆排序或归并排序序。<br>   快速排序：是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；</em></p>
-<p>###冒泡排序</p>
-<blockquote>
-<p>冒泡排序的核心是从头遍历序列。以升序排列为例：将第一个元素和第二个元素比较，若前者大于后者，则交换两者的位置，再将第二个元素与第三个元素比较，若前者大于后者则交换两者位置，以此类推直到倒数第二个元素与最后一个元素比较，若前者大于后者，则交换两者位置。这样一轮比较下来将会把序列中最大的元素移至序列末尾，这样就<strong><em>安排好了最大数的位置(每次找到一个最大的)</em></strong>，接下来只需对剩下的（n-1）个元素，重复上述操作即可.</p>
-</blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/006zweohgy1fw6uruj33yj30g6060glp.jpg" alt="冒泡排序"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时间复杂度O(N^2)， 额外空间复杂度O(1)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coding_00_bubbleSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">                    swap(arr, j, j + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        arr[i] = arr[i] ^ arr[j];</span><br><span class="line">        arr[j] = arr[i] ^ arr[j];</span><br><span class="line">        arr[i] = arr[i] ^ arr[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<center><img src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/05/ChMkJ1hsssKIdQ-FAA3Mbi9WrWYAAZFxQF9lmYADcyG867.jpg" width="400" height="260"></center><br><br><br>###冒泡排序<br>&gt;冒泡排序的核心是从头遍历序列。以升序排列为例：将第一个元素和第二个元素比较，若前者大于后者，则交换两者的位置，再将第二个元素与第三个元素比较，若前者大于后者则交换两者位置，以此类推直到倒数第二个元素与最后一个元素比较，若前者大于后者，则交换两者位置。这样一轮比较下来将会把序列中最大的元素移至序列末尾，这样就<strong><em>安排好了最大数的位置(每次找到一个最大的)</em></strong>，接下来只需对剩下的（n-1）个元素，重复上述操作即可.<br><br><center><img src="https://ws1.sinaimg.cn/large/006zweohgy1fw6uruj33yj30g6060glp.jpg" width="400" height="190"></center>
+
+<pre><code>//时间复杂度O(N^2)， 额外空间复杂度O(1)
+public class Coding_00_bubbleSort {
+    public static void bubbleSort(int[] arr) {
+        if (arr == null || arr.length &lt; 2)
+            return;
+        for (int i = arr.length - 1; i &gt; 0; i--) {
+            for (int j = 0; j &lt; i; j++) {
+                if (arr[j] &gt; arr[j + 1])
+                    swap(arr, j, j + 1);
+            }
+        }
+    }
+    private static void swap(int[] arr, int i, int j) {
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
+    }
+}
+</code></pre><p><br></p>
 <p>###插入排序</p>
 <blockquote>
 <p>插入即表示将一个新的数据插入到一个有序数组中，并继续保持有序。例如有一个长度为N的无序数组，进行N-1次的插入即能完成排序；第一次，数组第1个数认为是有序的数组，将数组第二个元素插入仅有1个有序的数组中；第二次，数组前两个元素组成有序的数组，将数组第三个元素插入由两个元素构成的有序数组中……第N-1次，数组前N-1个元素组成有序的数组，将数组的第N个元素插入由N-1个元素构成的有序数组中，则完成了整个插入排序。</p>
 </blockquote>
-<p>类似手里有一把排好序的牌，心哪一张和最后一个比较，看能插到前边哪个位置上。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时间复杂度O(N^2)， 额外空间复杂度O(1)</span></span><br><span class="line"><span class="comment">//实际时间和数据有关系O(N)~O(N^2)</span></span><br><span class="line"><span class="comment">//           排好序的数据~逆序数据</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coding_01_insertSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; arr[j] &gt; arr[j + <span class="number">1</span>]; j--) &#123;</span><br><span class="line">                swap(arr, j, j + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        arr[i] = arr[i] ^ arr[j];</span><br><span class="line">        arr[j] = arr[i] ^ arr[j];</span><br><span class="line">        arr[i] = arr[i] ^ arr[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类似手里有一把排好序的牌，心哪一张和最后一个比较，看能插到前边哪个位置上。</p>
+<pre><code>//时间复杂度O(N^2)， 额外空间复杂度O(1)
+//实际时间和数据有关系O(N)~O(N^2)
+//           排好序的数据~逆序数据
+public class Coding_01_insertSort {
+    public static void insertSort(int[] arr) {
+        if (arr == null || arr.length &lt; 2)
+            return;
+        for (int i = 1; i &lt; arr.length; i++) {
+            for (int j = i - 1; j &gt;= 0 &amp;&amp; arr[j] &gt; arr[j + 1]; j--) {
+                swap(arr, j, j + 1);
+            }
+        }
+    }
+    private static void swap(int[] arr, int i, int j) {
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
+    }
+}
+</code></pre><p><br></p>
 <p>###选择排序</p>
 <blockquote>
 <p>选择排序也是一种简单直观的排序算法。它的工作原理很容易理解：初始时在序列中找到最小（大）元素，放到序列的起始位置作为已排序序列；然后，再从剩余未排序元素中继续寻找最小（大）元素，放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
 </blockquote>
-<p>　　<strong>注意:</strong> 选择排序与冒泡排序的区别：冒泡排序通过依次交换相邻两个顺序不合法的元素位置，从而将当前最小（大）元素放到合适的位置；而选择排序每遍历一次都记住了当前最小（大）元素的位置，最后仅需一次交换操作即可将其放到合适的位置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时间复杂度O(N^2)， 额外空间复杂度O(1)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coding_02_selectSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> minIndex = i;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++)&#123;</span><br><span class="line">                minIndex = arr[j] &lt; arr[minIndex] ? j: minIndex; </span><br><span class="line">            &#125;</span><br><span class="line">            swap(arr, i, minIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　<strong>注意:</strong><br>　　选择排序与冒泡排序的区别：冒泡排序通过依次交换相邻两个顺序不合法的元素位置，从而将当前最小（大）元素放到合适的位置；而选择排序每遍历一次都记住了当前最小（大）元素的位置，最后仅需一次交换操作即可将其放到合适的位置</p>
+<pre><code>//时间复杂度O(N^2)， 额外空间复杂度O(1)
+public class Coding_02_selectSort {
+    public static void selectSort(int[] arr) {
+        if (arr == null || arr.length &lt; 2)
+            return;
+        for (int i = 0; i &lt; arr.length - 1; i++) {
+            int minIndex = i;
+            for(int j = i + 1; j &lt; arr.length; j++){
+                minIndex = arr[j] &lt; arr[minIndex] ? j: minIndex; 
+            }
+            swap(arr, i, minIndex);
+        }
+    }
+    private static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+}
+</code></pre><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539842937061&di=6b249c0c581e3c1e114006a30a1a6385&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F09%2F18%2F2157de921b8f6af.jpg" align="right" style=" width:300px;height:200 px"></p>
 
       
     </div>
@@ -491,7 +550,7 @@
   <p><span>本文标题:</span><a href="/2018/10/17/左神算法-02-简单排序/">左神算法-02_简单排序</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Big Jelly 的个人博客">Big Jelly</a></p>
   <p><span>发布时间:</span>2018年10月17日 - 09:42</p>
-  <p><span>最后更新:</span>2018年10月17日 - 20:28</p>
+  <p><span>最后更新:</span>2018年10月18日 - 11:34</p>
   <p><span>原始链接:</span><a href="/2018/10/17/左神算法-02-简单排序/" title="左神算法-02_简单排序">http://yoursite.com/2018/10/17/左神算法-02-简单排序/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/17/左神算法-02-简单排序/"  aria-label="复制成功！"></i></span>
   </p>
@@ -536,8 +595,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/17/左神算法-01_时间复杂度/" rel="next" title="左神算法_01_时间复杂度">
-                <i class="fa fa-chevron-left"></i> 左神算法_01_时间复杂度
+              <a href="/2018/10/17/左神算法-01_时间复杂度/" rel="next" title="左神算法-01_时间复杂度">
+                <i class="fa fa-chevron-left"></i> 左神算法-01_时间复杂度
               </a>
             
           </div>
@@ -545,6 +604,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/17/左神算法-03-master公式-快排/" rel="prev" title="左神算法-03-master公式&归并排序">
+                左神算法-03-master公式&归并排序 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -616,7 +679,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
