@@ -2,12 +2,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>爱吃jelly的Jelly</title>
   
-  
+  <subtitle>jjj Jelly</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://jelly54.github.io/"/>
   <updated>2018-10-18T08:26:16.773Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://jelly54.github.io/</id>
   
   <author>
     <name>Big Jelly</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>左神算法-04_小和问题和逆序对问题</title>
-    <link href="http://yoursite.com/2018/10/18/%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-04_%E5%B0%8F%E5%92%8C%E9%97%AE%E9%A2%98&amp;%E9%80%86%E5%BA%8F%E5%AF%B9/"/>
-    <id>http://yoursite.com/2018/10/18/左神算法-04_小和问题&amp;逆序对/</id>
+    <link href="https://jelly54.github.io/2018/10/18/%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-04_%E5%B0%8F%E5%92%8C%E9%97%AE%E9%A2%98&amp;%E9%80%86%E5%BA%8F%E5%AF%B9/"/>
+    <id>https://jelly54.github.io/2018/10/18/左神算法-04_小和问题&amp;逆序对/</id>
     <published>2018-10-18T02:53:54.000Z</published>
     <updated>2018-10-18T08:26:16.773Z</updated>
     
@@ -27,21 +27,21 @@
     
     </summary>
     
-      <category term="数据结构与算法" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+      <category term="数据结构与算法" scheme="https://jelly54.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://jelly54.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>左神算法-03-master公式&amp;归并排序</title>
-    <link href="http://yoursite.com/2018/10/17/%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-03_master%E5%85%AC%E5%BC%8F&amp;%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2018/10/17/左神算法-03_master公式&amp;归并排序/</id>
+    <link href="https://jelly54.github.io/2018/10/17/%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-03_master%E5%85%AC%E5%BC%8F&amp;%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
+    <id>https://jelly54.github.io/2018/10/17/左神算法-03_master公式&amp;归并排序/</id>
     <published>2018-10-17T12:53:54.000Z</published>
-    <updated>2018-10-18T08:25:08.672Z</updated>
+    <updated>2018-10-19T13:45:21.219Z</updated>
     
-    <content type="html"><![CDATA[<p>剖析递归行为和递归行为时间复杂度的估算以及归并排序<br><a id="more"></a></p><h2 id="剖析递归行为和递归行为时间复杂度的估算"><a href="#剖析递归行为和递归行为时间复杂度的估算" class="headerlink" title="剖析递归行为和递归行为时间复杂度的估算"></a>剖析递归行为和递归行为时间复杂度的估算</h2><p>一个递归行为的例子</p><h3 id="master公式的使用"><a href="#master公式的使用" class="headerlink" title="master公式的使用"></a>master公式的使用</h3><blockquote><p>T(N) = a*T(N/b) + O(N^d)</p></blockquote><p>　　T(N)是样本量为N时的时间复杂度，N/b是划分成子问题的样本量，子问题发生了a次，后面O(N^d)是除去调用子过程之外的时间复杂度。</p><p>比如要求一个数组的最大值：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMax</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L == R) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr[L];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (L + R) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> maxLeft = getMax(arr, L, mid);</span><br><span class="line">    <span class="keyword">int</span> maxRight = getMax(arr, mid + <span class="number">1</span>, R);</span><br><span class="line">    <span class="keyword">return</span> Math.max(maxLeft, maxRight);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//master公式： T(N) = 2*T(N/2) + O(1);</span></span><br></pre></td></tr></table></figure></p><p>　　这里划分成的递归子过程的样本量是N/2，这个相同的样本量发生了2次，除去调用子过程之外的时间复杂度是O(1),因为求最大值和判断if复杂度是O(1),所以N^d=1，所以d=0.</p><p>那么根据如下公式判断</p><ol><li>log(b,a) &gt; d -&gt; 复杂度为O(N^log(b,a)) </li><li>log(b,a) = d -&gt; 复杂度为O(N^d * logN)</li><li>log(b,a) &lt; d -&gt; 复杂度为O(N^d)</li></ol><p>　　这里log(b, a)(以b为底a的对数) = log(2, 2)=1 &gt; d=0<br>所以复杂度为O(N^log(2, 2))===&gt;O(N)，因此也就可以解释为什么归并排序的时间复杂度为nlogn了<br><br></p><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><blockquote><p>归并排序（MERGE-SORT）是利用归并的思想实现的排序方法，该算法采用经典的分治（divide-and-conquer）策略（分治法将问题分(divide)成一些小的问题然后递归求解，而治(conquer)的阶段则将分的阶段得到的各答案”修补”在一起，即分而治之)。  </p></blockquote><center><img src="https://images2015.cnblogs.com/blog/1024555/201612/1024555-20161218163120151-452283750.png" style=" width:460px;height:200 px"></center><p>　　可以看到这种结构很像一棵完全二叉树，本文的归并排序我们采用递归去实现（也可采用迭代的方式去实现）。分阶段可以理解为就是递归拆分子序列的过程，递归深度为log2n。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    mergeSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = l + ((r - l) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    mergeSort(arr, l, mid);</span><br><span class="line">    mergeSort(arr, mid + <span class="number">1</span>, r);</span><br><span class="line">    merge(arr, l, mid, r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> m, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] help = <span class="keyword">new</span> <span class="keyword">int</span>[r - l + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p1 = l;</span><br><span class="line">    <span class="keyword">int</span> p2 = m + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= m &amp;&amp; p2 &lt;= r) &#123;</span><br><span class="line">        help[i++] = arr[p1] &lt; arr[p2] ? arr[p1++] :arr[p2++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= m) &#123;</span><br><span class="line">        help[i++] = arr[p1++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p2 &lt;= r) &#123;</span><br><span class="line">        help[i++] = arr[p2++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; help.length; i++) &#123;</span><br><span class="line">        arr[l + i] = help[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><br></p><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>　　归并排序是稳定排序，他也是一种十分高效的排序，能利用完全二叉树特性的排序一般性能都不会太差。java中Arrays.sort()采用了一种名为TimSort的排序算法，就是归并排序的优化版本。从上文的图中可看出，每次合并操作的平均时间复杂度为O(n)，而完全二叉树的深度为|log2n|。总的平均时间复杂度为O(nlogn)。而且，归并排序的最好，最坏，平均时间复杂度均为O(nlogn)。</p>]]></content>
+    <content type="html"><![CDATA[<p>剖析递归行为和递归行为时间复杂度的估算以及归并排序<br><a id="more"></a></p><h2 id="剖析递归行为和递归行为时间复杂度的估算"><a href="#剖析递归行为和递归行为时间复杂度的估算" class="headerlink" title="剖析递归行为和递归行为时间复杂度的估算"></a>剖析递归行为和递归行为时间复杂度的估算</h2><p>一个递归行为的例子</p><h3 id="master公式的使用"><a href="#master公式的使用" class="headerlink" title="master公式的使用"></a>master公式的使用</h3><blockquote><p>T(N) = a*T(N/b) + O(N^d)</p></blockquote><p>　　T(N)是样本量为N时的时间复杂度，N/b是划分成子问题的样本量，子问题发生了a次，后面O(N^d)是除去调用子过程之外的时间复杂度。</p><p>比如要求一个数组的最大值：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMax</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (L == R) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr[L];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (L + R) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> maxLeft = getMax(arr, L, mid);</span><br><span class="line">    <span class="keyword">int</span> maxRight = getMax(arr, mid + <span class="number">1</span>, R);</span><br><span class="line">    <span class="keyword">return</span> Math.max(maxLeft, maxRight);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//master公式： T(N) = 2*T(N/2) + O(1);</span></span><br></pre></td></tr></table></figure></p><p>　　这里划分成的递归子过程的样本量是N/2，这个相同的样本量发生了2次，除去调用子过程之外的时间复杂度是O(1),因为求最大值和判断if复杂度是O(1),所以N^d=1，所以d=0.</p><p>那么根据如下公式判断</p><ol><li>log(b,a) &gt; d -&gt; 复杂度为O(N^log(b,a)) </li><li>log(b,a) = d -&gt; 复杂度为O(N^d * logN)</li><li>log(b,a) &lt; d -&gt; 复杂度为O(N^d)</li></ol><p>　　这里log(b, a)(以b为底a的对数) = log(2, 2)=1 &gt; d=0<br>所以复杂度为O(N^log(2, 2))===&gt;O(N)，因此也就可以解释为什么归并排序的时间复杂度为nlogn了<br><br></p><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><blockquote><p>归并排序（MERGE-SORT）是利用归并的思想实现的排序方法，该算法采用经典的分治（divide-and-conquer）策略（分治法将问题分(divide)成一些小的问题然后递归求解，而治(conquer)的阶段则将分的阶段得到的各答案”修补”在一起，即分而治之)。  </p></blockquote><center><img src="https://images2015.cnblogs.com/blog/1024555/201612/1024555-20161218163120151-452283750.png" style="width:460px;height:200 px"></center><p>　　可以看到这种结构很像一棵完全二叉树，本文的归并排序我们采用递归去实现（也可采用迭代的方式去实现）。分阶段可以理解为就是递归拆分子序列的过程，递归深度为log2n。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    mergeSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = l + ((r - l) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    mergeSort(arr, l, mid);</span><br><span class="line">    mergeSort(arr, mid + <span class="number">1</span>, r);</span><br><span class="line">    merge(arr, l, mid, r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> l, <span class="keyword">int</span> m, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] help = <span class="keyword">new</span> <span class="keyword">int</span>[r - l + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> p1 = l;</span><br><span class="line">    <span class="keyword">int</span> p2 = m + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= m &amp;&amp; p2 &lt;= r) &#123;</span><br><span class="line">        help[i++] = arr[p1] &lt; arr[p2] ? arr[p1++] :arr[p2++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt;= m) &#123;</span><br><span class="line">        help[i++] = arr[p1++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p2 &lt;= r) &#123;</span><br><span class="line">        help[i++] = arr[p2++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; help.length; i++) &#123;</span><br><span class="line">        arr[l + i] = help[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><br></p><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>　　归并排序是稳定排序，他也是一种十分高效的排序，能利用完全二叉树特性的排序一般性能都不会太差。java中Arrays.sort()采用了一种名为TimSort的排序算法，就是归并排序的优化版本。从上文的图中可看出，每次合并操作的平均时间复杂度为O(n)，而完全二叉树的深度为|log2n|。总的平均时间复杂度为O(nlogn)。而且，归并排序的最好，最坏，平均时间复杂度均为O(nlogn)。</p>]]></content>
     
     <summary type="html">
     
@@ -49,17 +49,17 @@
     
     </summary>
     
-      <category term="数据结构与算法" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+      <category term="数据结构与算法" scheme="https://jelly54.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://jelly54.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>左神算法-02_简单排序</title>
-    <link href="http://yoursite.com/2018/10/17/%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-02-%E7%AE%80%E5%8D%95%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2018/10/17/左神算法-02-简单排序/</id>
+    <link href="https://jelly54.github.io/2018/10/17/%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-02_%E7%AE%80%E5%8D%95%E6%8E%92%E5%BA%8F/"/>
+    <id>https://jelly54.github.io/2018/10/17/左神算法-02_简单排序/</id>
     <published>2018-10-17T01:42:04.000Z</published>
     <updated>2018-10-18T08:20:07.012Z</updated>
     
@@ -71,19 +71,19 @@
     
     </summary>
     
-      <category term="数据结构与算法" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+      <category term="数据结构与算法" scheme="https://jelly54.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://jelly54.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="排序" scheme="http://yoursite.com/tags/%E6%8E%92%E5%BA%8F/"/>
+      <category term="排序" scheme="https://jelly54.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>左神算法-01_时间复杂度</title>
-    <link href="http://yoursite.com/2018/10/17/%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-01_%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"/>
-    <id>http://yoursite.com/2018/10/17/左神算法-01_时间复杂度/</id>
+    <link href="https://jelly54.github.io/2018/10/17/%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-01_%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"/>
+    <id>https://jelly54.github.io/2018/10/17/左神算法-01_时间复杂度/</id>
     <published>2018-10-17T00:19:20.000Z</published>
     <updated>2018-10-18T08:17:15.437Z</updated>
     
@@ -95,19 +95,19 @@
     
     </summary>
     
-      <category term="数据结构与算法" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+      <category term="数据结构与算法" scheme="https://jelly54.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://jelly54.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/10/15/hello-world/"/>
-    <id>http://yoursite.com/2018/10/15/hello-world/</id>
+    <link href="https://jelly54.github.io/2018/10/15/hello-world/"/>
+    <id>https://jelly54.github.io/2018/10/15/hello-world/</id>
     <published>2018-10-15T08:20:03.000Z</published>
-    <updated>2018-10-15T12:22:18.806Z</updated>
+    <updated>2018-10-19T13:41:03.763Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br><a id="more"></a></p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -117,12 +117,12 @@
     
     </summary>
     
-      <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://jelly54.github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="tools" scheme="http://yoursite.com/tags/tools/"/>
+      <category term="tools" scheme="https://jelly54.github.io/tags/tools/"/>
     
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+      <category term="blog" scheme="https://jelly54.github.io/tags/blog/"/>
     
   </entry>
   
