@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jelly54.github.io/"/>
-  <updated>2018-11-07T11:45:45.608Z</updated>
+  <updated>2018-11-07T11:48:16.701Z</updated>
   <id>https://jelly54.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode-05-最长回文子串</title>
+    <link href="https://jelly54.github.io/2018/10/21/LeetCode-05-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/"/>
+    <id>https://jelly54.github.io/2018/10/21/LeetCode-05-最长回文子串/</id>
+    <published>2018-10-21T10:57:46.000Z</published>
+    <updated>2018-11-07T11:48:16.701Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为1000。</p></blockquote><a id="more"></a><p><strong>示例 1：</strong>  </p><ul><li>输入: “babad”  </li><li>输出: “bab”   </li></ul><p><strong>注意:</strong>  “aba”也是一个有效答案。</p><p><strong>示例 2：</strong>  </p><ul><li>输入: “cbbd”  </li><li>输出: “bb”  </li></ul><h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><h3 id="方法一：动态规划"><a href="#方法一：动态规划" class="headerlink" title="方法一：动态规划"></a>方法一：动态规划</h3><blockquote><p>我们首先观察如何避免在验证回文时进行不必要的重复计算。考虑“ababa” 这个示例。如果我们已经知道“bab”是回文，那么，“ababa”一定是回文，因为他的左首字母和右尾字母是相同的。</p></blockquote><p>我们给出P(i, j) 的定义如下：<br>P(i, j)={true,  如果子串Si, ….Sj是回文子串}<br>        {false， 其他情况}</p><p>因此，  </p><p>P(i , j) = (P(i + 1, j - 1) and Si == Sj)  </p><p>基本示例例如下：  </p><p>P(i , j) = true<br>P(i , i+1) = (Si == Si+1)  </p><p>这产生了一个直观的动态规划解法，我们首先初始化一字母和二字母的回文，然后找到所有三字母回文，并以此类推…  </p><h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><ul><li>时间复杂度：O(n^2)，这里给出我们的运行时间复杂度为O(n^2).</li><li>空间复杂度：O(n^2)，该方法使用O(n^2)的空间存储表。  </li></ul><h3 id="方法二：中心扩展算法"><a href="#方法二：中心扩展算法" class="headerlink" title="方法二：中心扩展算法"></a>方法二：中心扩展算法</h3><blockquote><p>事实上，只需使用恒定的时间，我们就可以在O(n^2)的时间内解决这个问题。  </p></blockquote><blockquote><p>我们观察到回文中心的两侧互为镜像。因此，回文可以从他的中心展开，并且只有2n-1 个这样的中心.</p></blockquote><blockquote><p>你可能会问，为什么是2n-1个，而不是n个中心？原因在于所含字母数为偶数的回文的中心可以处于两字母之间(例如“abba”的中心在两个b之间)。</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> index, len;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length() &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length() - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            palindromHelp(s , i, i);</span><br><span class="line">            palindromHelp(s , i, i+<span class="number">1</span>);            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(index, index + len);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">palindromHelp</span><span class="params">(String s, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(l &gt;= <span class="number">0</span> &amp;&amp; r &lt; s.length() &amp;&amp; s.charAt(l) == s.charAt(r))&#123;</span><br><span class="line">            l--;</span><br><span class="line">            r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(len&lt;r-l-<span class="number">1</span>)&#123;</span><br><span class="line">            index = l + <span class="number">1</span>;</span><br><span class="line">            len = r - l - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><ul><li>时间复杂度：O(n^2)，由于围绕中心来扩展回文会好去O(n)的时间，所以总的复杂度为O(n^2)</li><li>空间复杂度：O(1)</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为1000。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="https://jelly54.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://jelly54.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode-04-两个排序数组的中位数</title>
