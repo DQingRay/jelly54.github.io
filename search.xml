@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode-01_两数之和]]></title>
+    <url>%2F2018%2F10%2F20%2FLeetCode-01-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%2F</url>
+    <content type="text"><![CDATA[给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。 示例: 给定 nums = [2, 7, 11, 15], target = 9 因为 nums[0] + nums[1] = 2 + 7 = 9 所以返回 [0, 1] 解决方案：方法一: 暴力法 暴力法很简单。遍历每个元素 xx，并查找是否存在一个值与 target - xtarget−x 相等的目标元素1234567891011121314151617181920212223242526272829303132333435363738public int[] twoSum(int[] nums, int target)&#123; if(nums == null || nums.length &lt; 2) return null; for(int i = 0; i &lt; nums.length - 1;i++)&#123; for(int j = i + 1; j &lt; nums.length;j++)&#123; if(nums[i] + nums[j] ==target)&#123; return new int[]&#123;i,j&#125;; &#125; &#125; &#125; return null;&#125;``` #### 复杂度分析：- 时间复杂度：O(n^2)，对于每个元素，我们试图通过遍历数组的其余部分来寻找它所对应的目标元素，这将耗费 O(n) 的时间。因此时间复杂度为 O(n^2)。 - 空间复杂度：O(1)。 &lt;br/&gt;### 方法二：两遍哈希表&gt;在第一次迭代中，我们将每个元素的值和它的索引添加到表中。然后，在第二次迭代中，我们将检查每个元素所对应的目标元素(target -nums[i])是否存在于表中。**注意**，该目标元素不能是 nums[i]本身！ ```javaclass Solution &#123; public int[] twoSum(int[] nums, int target) &#123; Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;(); for(int i = 0; i &lt; nums.length ; i ++)&#123; map.put(nums[i], i); &#125; for(int i = 0; i &lt; nums.length; i++)&#123; int compare = target - nums[i]; if(map.containsKey(compare) &amp;&amp; map.get(compare) != i)&#123; return new int[]&#123;i,map.get(compare)&#125;; &#125; &#125; throw new IllegalArgumentException("No two sum solution"); &#125;&#125; 复杂度分析： 时间复杂度：O(n)， 我们把包含有 n 个元素的列表遍历两次。由于哈希表将查找时间缩短到 O(1) ，所以时间复杂度为 O(n)。 空间复杂度：O(n)， 所需的额外空间取决于哈希表中存储的元素数量，该表中存储了 n 个元素。 方法三：一遍哈希表 在进行迭代并将元素插入到表中的同时，我们还会回过头来检查表中是否已经存在当前元素对应的目标元素。如果存在，那我们已经找到了对迎接并立即将其返回。1234567891011public int[] twoSum(int[] nums, int target)&#123; Map&lt;Integer, Integer&gt; map = newHashMap&lt;&gt;(); for(int i = 0; i &lt; nums.length; i++)&#123; int compare = target - nums[i]; if(map.containsKey(compare) &amp;&amp;map.get(compare) != i)&#123; return newint[]&#123;map.get(compare), i&#125;; &#125; map.put(nums[i], i); &#125; throw new IllegalArgumentException("Notwo sum solution");&#125; 复杂度分析: 时间复杂度：O(n)，我们之遍历了包含有n个元素的列表一次次。在表中进行的每次查找只花费O(1)的时间。 空间复杂度：O(n)，所需的额外空间取决于哈希表中存储的元素数量，该表最多需要存储n个元素。]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[左神算法-04_小和问题和逆序对问题]]></title>
     <url>%2F2018%2F10%2F18%2F%E5%B7%A6%E7%A5%9E%E7%AE%97%E6%B3%95-04_%E5%B0%8F%E5%92%8C%E9%97%AE%E9%A2%98%26%E9%80%86%E5%BA%8F%E5%AF%B9%2F</url>
     <content type="text"></content>
