@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jelly54.github.io/"/>
-  <updated>2018-11-07T00:29:59.844Z</updated>
+  <updated>2018-11-07T00:40:55.619Z</updated>
   <id>https://jelly54.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode-02-两个链表相加</title>
+    <link href="https://jelly54.github.io/2018/10/20/LeetCode-02-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/"/>
+    <id>https://jelly54.github.io/2018/10/20/LeetCode-02-两个链表相加/</id>
+    <published>2018-10-20T01:36:21.000Z</published>
+    <updated>2018-11-07T00:40:55.619Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。<br>你可以假设除了数字 0之外，这两个数字都不会以零开头。<br><a id="more"></a></p></blockquote><p><strong>示例：</strong>  </p><ul><li>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)  </li><li>输出：7 -&gt; 0 -&gt; 8  </li><li>原因：342 + 465 = 807   </li></ul><h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p><strong>算法：</strong><br>就像你在纸上计算两个数字的和那样，我们首先从最低有效位也就是列表 l1 和 l2 的表头开始相加。由于每位数字都应当处于0···9的范围内，我们计算两个数字的和时可能会出现“溢出”。例如，5 + 7 = 12。在这种情况下，我们会将当前位的数值设置为 22，并将进位 carry = 1带入下一次迭代。进位 carry 必定是 0 或 1，这是因为两个数字相加（考虑到进位）可能出现的最大和为 9 + 9 + 1 = 19。</p><p><strong>伪代码如下：</strong>  </p><ul><li>将当前结点初始化为返回列表的哑结点。</li><li>将进位 carrycarry 初始化为 00。</li><li>将 pp 和 qq 分别初始化为列表 l1l1 和 l2l2 的头部。</li><li>遍历列表 l1l1 和 l2l2 直至到达它们的尾端。<ul><li>将 x 设为结点 pp 的值。如果 p 已经到达 l1 的末尾，则将其值设置为 0。</li><li>将 y 设为结点 q 的值。如果 q 已经到达 l2 的末尾，则将其值设置为 0。</li><li>设定 sum = x + y + carry。</li><li>更新进位的值，carry = sum / 10。</li><li>创建一个数值为 (sum mod 10)的新结点，并将其设置为当前结点的下一个结点，然后将当前结点前进到下一个结点。</li><li>同时，将 p 和 q 前进到下一个结点。</li></ul></li><li>检查 carry = 1 是否成立，如果成立，则向返回列表追加一个含有数字 1 的新结点。</li><li>返回哑结点的下一个结点。</li></ul><p>请注意，我们使用哑结点来简化代码。如果没有哑结点，则必须编写额外的条件语句来初始化表头的值。</p><table><thead><tr><th>测试用例</th><th>说明</th></tr></thead><tbody><tr><td>l1 = [0, 1] <br>l2 =[0, 1, 2]</td><td>当一个列表比另一个列表长时  </td></tr><tr><td>l1 = []<br>l2 = [0, 1]</td><td>当一个列表为空时，即出现空列表</td></tr><tr><td>l1 = [9, 9]<br>l2 = [1]</td><td>求和运算最后可能出现额外的进位，这一点很容易被遗忘</td></tr></tbody></table><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">    ListNode sumNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    ListNode p = l1, q = l2, cursumNode;</span><br><span class="line">    <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="keyword">null</span> || q != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> x = (p != <span class="keyword">null</span>) ? p.val : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> y = (q != <span class="keyword">null</span>) ? q.val : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = carry + x + y;</span><br><span class="line">        carry = sum / <span class="number">10</span>;</span><br><span class="line">        curr.next = <span class="keyword">new</span> ListNode(su10);</span><br><span class="line">        curr = curr.next;</span><br><span class="line">        <span class="keyword">if</span> (p != <span class="keyword">null</span>) p = p.next;</span><br><span class="line">        <span class="keyword">if</span> (q != <span class="keyword">null</span>) q = q.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        curr.next = <span class="keyword">new</span> ListNode(carry);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sumNode.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析:"></a>复杂度分析:</h4><ul><li>时间复杂度：O(max(m, n))，假设 m 和 n 分别表示 l1 和 l2 的长度，上面的算法最多重复 max(m, n) 次。</li><li>空间复杂度：O(\max(m, n))O(max(m,n))， 新列表的长度最多为 \max(m,n) + 1max(m,n)+1。</li></ul><p><strong>拓展</strong>  </p><p>如果链表中的数字不是按逆序存储的呢？例如：</p><p>(3 → 4 → 2) + (4 → 6 → 5) = 8 → 0 → 7</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。&lt;br&gt;你可以假设除了数字 0之外，这两个数字都不会以零开头。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="https://jelly54.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://jelly54.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode-01_两数之和</title>
