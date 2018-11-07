@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[LeetCode-26-删除数组中的重复项]]></title>
     <url>%2F2018%2F10%2F21%2FLeetCode-26-%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9%2F</url>
-    <content type="text"><![CDATA[给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。 示例 1: 给定数组 nums = [1,1,2], 函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 你不需要考虑数组中超出新长度后面的元素。 示例 2: 给定 nums = [0,0,1,1,1,2,2,3,3,4], 函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。 你不需要考虑数组中超出新长度后面的元素。说明: 为什么返回数值是整数，但输出的答案是数组呢? 请注意 输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。 你可以想象内部操作如下: // nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝int len = removeDuplicates(nums); // 在函数里修改输入数组对于调用者是可见的。// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。for (int i = 0; i &lt; len; i++) { print(nums[i]);} 解决方案方法一： 双指针算法 数组完成排序后，我们可以放置两个指针 i 和 j，其中 i 是慢指针，而 j 是快指针。只要 nums[i] = nums[j]，我们就增加 j 以跳过重复项。当我们遇到 nums[j] != nums[i] 时，跳过重复项的运行已经结束，因此我们必须把它nums[j]的值复制到 nums[i + 1]。然后递增 i，接着我们将再次重复相同的过程，直到 j 达数组的末尾为止。1234567891011public int removeDuplicates(int[] nums) &#123; if (nums.length == 0) return 0; int i = 0; for (int j = 1; j &lt; nums.length; j++) &#123; if (nums[j] != nums[i]) &#123; i++; nums[i] = nums[j]; &#125; &#125; return i + 1;&#125; 复杂度分析 时间复杂度：15ms, O(n)， 假设数组的长度是 n，那么 i 和 j 分别最多遍历 n 步。 空间复杂度：O(1)。 方法二：我的做法 双指针 一快一慢两个指针。`javapublic static intremoveDuplicates(it[] nums) { if(nums.length== 0) return 0; int i = 0, j =1; while(j &lt;=nums.length -1) { if(nums[i]== nums[j]){ j++; }elseif(nums[i] &lt;nums[j]){ swap(nums,++i, j++); } } return i+1;}private static voidswap(int[] nums,int i, int j) { int tmp =nums[i]; nums[i] =nums[j]; nums[j] = tmp; }` 复杂度分析 时间复杂度：9ms, O(n)， 假设数组的长度是 n，那么 i 和 j 分别最多遍历 n 步。 空间复杂度：O(1)。]]></content>
+    <content type="text"><![CDATA[给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。 示例 1: 给定数组 nums = [1,1,2], 函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 你不需要考虑数组中超出新长度后面的元素。 示例 2: 给定 nums = [0,0,1,1,1,2,2,3,3,4], 函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。 你不需要考虑数组中超出新长度后面的元素。说明: 为什么返回数值是整数，但输出的答案是数组呢? 请注意 输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。 你可以想象内部操作如下: // nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝int len = removeDuplicates(nums); // 在函数里修改输入数组对于调用者是可见的。// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。for (int i = 0; i &lt; len; i++) { print(nums[i]);} 解决方案方法一： 双指针算法 数组完成排序后，我们可以放置两个指针 i 和 j，其中 i 是慢指针，而 j 是快指针。只要 nums[i] = nums[j]，我们就增加 j 以跳过重复项。当我们遇到 nums[j] != nums[i] 时，跳过重复项的运行已经结束，因此我们必须把它nums[j]的值复制到 nums[i + 1]。然后递增 i，接着我们将再次重复相同的过程，直到 j 达数组的末尾为止。 1234567891011public int removeDuplicates(int[] nums) &#123; if (nums.length == 0) return 0; int i = 0; for (int j = 1; j &lt; nums.length; j++) &#123; if (nums[j] != nums[i]) &#123; i++; nums[i] = nums[j]; &#125; &#125; return i + 1;&#125; 复杂度分析 时间复杂度：15ms, O(n)， 假设数组的长度是 n，那么 i 和 j 分别最多遍历 n 步。 空间复杂度：O(1)。 方法二：我的做法 双指针 一快一慢两个指针。 public static intremoveDuplicates(it[] nums) { if(nums.length== 0) return 0; int i = 0, j =1; while(j &lt;=nums.length -1) { if(nums[i]== nums[j]){ j++; }elseif(nums[i] &lt;nums[j]){ swap(nums,++i, j++); } } return i+1; } private static voidswap(int[] nums,int i, int j) { int tmp =nums[i]; nums[i] =nums[j]; nums[j] = tmp; } 复杂度分析 时间复杂度：9ms, O(n)， 假设数组的长度是 n，那么 i 和 j 分别最多遍历 n 步。 空间复杂度：O(1)。]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
@@ -134,14 +134,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
+    <title><![CDATA[你好，陌生人]]></title>
     <url>%2F2018%2F10%2F15%2F%E4%BD%A0%E5%A5%BD%E9%99%8C%E7%94%9F%E4%BA%BA%2F</url>
-    <content type="text"><![CDATA[你好, 陌生人 柳絮抚风，微醺了浅湖 我轻触你指尖的纹路 诧异流连眼眸 抵不过掌心的温柔 你不问我来方 我不知你去向 只默然凝望 欢迎来到 Jelly 的 blog，希望我的文章对你的学习有帮助。blog中如有不妥之处，欢迎随时留言指正。]]></content>
+    <content type="text"><![CDATA[你好, 陌生人 柳絮抚风，微醺了浅湖 我轻触你指尖的纹路诧异流连眼眸 抵不过掌心的温柔 你不问我来方 我不知你去向 只默然凝望 欢迎来到 Jelly 的 blog，希望我的文章对你的学习有帮助。blog中如有不妥之处，欢迎随时留言指正。]]></content>
       <categories>
         <category>博客</category>
       </categories>
       <tags>
-        <tag>杂文</tag>
+        <tag>杂记</tag>
         <tag>blog</tag>
       </tags>
   </entry>
