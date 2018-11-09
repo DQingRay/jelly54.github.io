@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode-215-数组中的第K大的元素]]></title>
+    <url>%2F2018%2F11%2F09%2FLeetCode-215-%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACK%E5%A4%A7%E7%9A%84%E5%85%83%E7%B4%A0%2F</url>
+    <content type="text"><![CDATA[数组中的第K大的元素 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2 输出: 5 示例 2: 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4 输出: 4 说明: 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。 解决方案 给定的数组是无序的，要想拿到第K个大的数据，先要将数组排序，在获取数组的 nums。length - k 位置的数据即可。 方法一：利用数组自带的排序1234public int findKthLargest(int[] nums, int k) &#123; Arrays.sort(nums); return nums[nums.length - k];&#125; 复杂度分析 时间复杂度 O(NlogN) 空间复杂度 O(1) 方法二：堆排序 维持一个最大堆，name堆顶的元素将是最大的。将数据存入堆中，控制堆的大小为k，最后peek()一下就是第k大的数据。 123456789public int findKthLargest(int[] nums, int k) &#123; PriorityQueue&lt;Integer&gt; pq = new PriorityQueue&lt;&gt;(); // 小顶堆 for (int val : nums) &#123; pq.add(val); if (pq.size() &gt; k) // 维护堆的大小为 K pq.poll(); &#125; return pq.peek();&#125; 复杂度分析 时间复杂度 O(NlogK) 空间复杂度 O(K)。 方法三： 快速选择1234567891011121314151617181920212223242526272829303132333435public int findKthLargest(int[] nums, int k) &#123; k = nums.length - k; int l = 0, h = nums.length - 1; while (l &lt; h) &#123; int j = partition(nums, l, h); if (j == k) &#123; break; &#125; else if (j &lt; k) &#123; l = j + 1; &#125; else &#123; h = j - 1; &#125; &#125; return nums[k];&#125;private int partition(int[] a, int l, int h) &#123; int i = l, j = h + 1; while (true) &#123; while (a[++i] &lt; a[l] &amp;&amp; i &lt; h) ; while (a[--j] &gt; a[l] &amp;&amp; j &gt; l) ; if (i &gt;= j) &#123; break; &#125; swap(a, i, j); &#125; swap(a, l, j); return j;&#125;private void swap(int[] a, int i, int j) &#123; int t = a[i]; a[i] = a[j]; a[j] = t;&#125; 复杂度分析 时间复杂度 O(N) 空间复杂度 O(1)]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode-633-平方数之和]]></title>
     <url>%2F2018%2F11%2F09%2FLeetCode-633-%E5%B9%B3%E6%96%B9%E6%95%B0%E4%B9%8B%E5%92%8C%2F</url>
-    <content type="text"><![CDATA[平方数之和 给定一个非负整数 c ，你要判断是否存在两个整数 a 和 b，使得 a2 + b2 = c。 示例1: 输入: 5 输出: True 解释: 1 1 + 2 2 = 5 示例2: 输入: 3 输出: False]]></content>
+    <content type="text"><![CDATA[平方数之和 给定一个非负整数 c ，你要判断是否存在两个整数 a 和 b，使得 a^2 + b^2 = c。 示例1: 输入: 5 输出: True 解释: 1 1 + 2 2 = 5 示例2: 输入: 3 输出: False 解决方案方法一： 两个指针 一个数如果可以是另外两个数的平方和，那么这两个数必定都比这个书的开方后的值小。 因此，我们可以定义两个变量，一个从 0 开始，一个从Math.sqrt(c)) 开始。 将两数平方和 与 该数进行比较，若大于该数，则后指针减一;若小于该数，前指针加一。直到找见 与该数相等，返回 12345678910111213141516class Solution &#123; public boolean judgeSquareSum(int c) &#123; int i = 0, j = (int)Math.sqrt(c); while(i &lt;= j)&#123; int sum = i*i + j*j; if(sum == c)&#123; return true; &#125;else if(sum &gt; c)&#123; j--; &#125;else&#123; i++; &#125; &#125; return false; &#125;&#125; 复杂度分析 时间复杂度：O(N) 空间复杂度：O(1)]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
