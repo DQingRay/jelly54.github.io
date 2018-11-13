@@ -317,7 +317,7 @@
   <entry>
     <title><![CDATA[你好，陌生人]]></title>
     <url>%2F2018%2F10%2F15%2F%E4%BD%A0%E5%A5%BD%E9%99%8C%E7%94%9F%E4%BA%BA%2F</url>
-    <content type="text"><![CDATA[#post-js{width:980px;height:680px;color:#0099ff;margin:auto;font-size:25px;font-family:”华文行楷”;} 你好, 陌生人]]></content>
+    <content type="text"><![CDATA[#post-js{width:980px;height:630px;color:#0099ff;margin:auto;font-size:25px;font-family:”华文行楷”;} 你好, 陌生人]]></content>
       <categories>
         <category>博客</category>
       </categories>
