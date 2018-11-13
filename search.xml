@@ -317,7 +317,7 @@
   <entry>
     <title><![CDATA[你好，陌生人]]></title>
     <url>%2F2018%2F10%2F15%2F%E4%BD%A0%E5%A5%BD%E9%99%8C%E7%94%9F%E4%BA%BA%2F</url>
-    <content type="text"><![CDATA[你好, 陌生人 柳絮抚风，微醺了浅湖 我轻触你指尖的纹路诧异流连眼眸 抵不过掌心的温柔 你不问我来方 我不知你去向 只默然凝望 欢迎来到 Jelly 的 blog，希望我的文章对你的学习有帮助。blog中如有不妥之处，欢迎随时留言指正。]]></content>
+    <content type="text"><![CDATA[#text{width:980px;height:980px;color:#0099ff;margin:auto;font-size:30px;font-family:&quot;华文行楷&quot;;} var i = 0; var str ="你好, 陌生人L柳絮抚风，微醺了浅湖L我轻触你指尖的纹路LM诧异流连眼眸L抵不过掌心的温柔L你不问我来方L我不知你去向L只默然凝望L欢迎来到 Jelly 的 blog，L希望我的文章对你的学习有帮助。Lblog中如有不妥之处，欢迎随时留言指正。" window.onload=function typing (){ //js 获取div var mydiv = document.getElementById("text"); if(str.charAt(i) == 'L'){ mydiv.innerHTML += ''; } else if(str.charAt(i) == 'M'){ mydiv.innerHTML += ''; } else{ mydiv.innerHTML += str.charAt(i); } i++; var id = setTimeout(typing,100); if(i==str.length){ clearTimeout(id); } }]]></content>
       <categories>
         <category>博客</category>
       </categories>
