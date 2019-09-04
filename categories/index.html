@@ -391,8 +391,8 @@
           
 
   
-    <div class="comments" id="comments">
-    </div>
+	<div id="gitalk-container"></div>
+
   
 
 
@@ -729,29 +729,22 @@
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'liD0GRav2BkUzWkXbTLJQAsq-gzGzoHsz',
-        appKey: 'dX1rK5CeJYG7hRPGgpWd7PSh',
-        placeholder: '来啊，一起造作啊ヾ(≧∇≦*)ゝ',
-        avatar:'retro',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
 
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'ca31692554c3aea431f0',
+          clientSecret: '1173c9e9c3c9038304c9a5b08929a359cae9f847',
+          repo: 'jelly54.github.io',
+          owner: 'jelly54',
+          admin: ['jelly54'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
   
 
