@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jelly54.github.io/"/>
-  <updated>2019-09-04T12:02:26.888Z</updated>
+  <updated>2019-09-04T11:53:41.948Z</updated>
   <id>https://jelly54.github.io/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>R740服务器装Centos7.6步骤图</title>
-    <link href="https://jelly54.github.io/2019/09/04/R740%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A3%85Centos7-6%E6%AD%A5%E9%AA%A4%E5%9B%BE/"/>
-    <id>https://jelly54.github.io/2019/09/04/R740服务器装Centos7-6步骤图/</id>
-    <published>2019-09-04T11:32:49.000Z</published>
-    <updated>2019-09-04T12:02:26.888Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Dell-R740服务器安装-Centos-7-6-步骤"><a href="#Dell-R740服务器安装-Centos-7-6-步骤" class="headerlink" title="Dell R740服务器安装 Centos 7.6 步骤"></a>Dell R740服务器安装 Centos 7.6 步骤</h1><p>其实服务器安装系统和虚拟机安装系统没什么太多的不同，注意我前边的文章《服务器装系统注意事项》中说的内容就好了。</p><a id="more"></a><ol><li>开机后按 <strong>F11</strong> 进入BootManager，选择 <strong>One-shot UEFI Boot Menu</strong>  </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewR6x0.png" alt="ewR6x0.png"></p><ol start="2"><li>选择带有USB的选项，从U盘启动 </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewRgMV.png" alt="ewRgMV.png"></p><ol start="3"><li>进入安装界面，光标移到第一个<strong>Install Centos 7</strong> 然后有两种做法</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewR0aQ.png" alt="ewR0aQ.png"></p><p>4.1 按Tab键 </p><p>按下TAB后，你会看到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 rd.live.check quiet</span><br></pre></td></tr></table></figure></p><p>把LABEL=CentOS\x207\x20x86_64修改一下改成你修改后的卷标。然后 按回车，稍等一会进入第 5 步。</p><p>4.2 第3步完成后 <strong>按e</strong> 将<strong>hd:LABEL=CentOS\x207\x20x86_64 quiet</strong> 删除一部分，改成<strong>hd:LABEL=CentOS quiet inst.gpt</strong> 按Ctrl+x启动。LABEL= 后为你的启动盘的名称。inst.gpt为你需要手动分区 GPT分割表。</p><p><img src="https://s2.ax1x.com/2019/08/02/ewRy2q.png" alt="ewRy2q.png"></p><ol start="5"><li>选择语言，默认即可，点击Continue</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewRB5j.png" alt="ewRB5j.png"></p><ol start="6"><li>下边可能存在一些感叹号，暂时不用管。选择<strong>DATE &amp; TIME</strong> </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewRrPs.png" alt="ewRrPs.png"></p><ol start="7"><li>选择 亚洲 <strong>Asia</strong>，上海 <strong>Shanghai</strong>，修改一下下边的小时，然后点击Done</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewRsGn.png" alt="ewRsGn.png"></p><ol start="8"><li>选择<strong>SOFTWARE SELECTION</strong> 选择安装的软件，勾选 <strong>Development Tools</strong> 点击Done</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvKUA.png" alt="ewvKUA.png"></p><ol start="9"><li>等一小段时间，<strong>SOFTWARE</strong> 中的两个图标中的感叹号将消失，然后选择<strong>INSTALLATION DESTINATION</strong> 选择安装设备，下边分区选择自动分区<strong>Automatically configure partitioning</strong>，需要特殊分区的待系统创建好后，手动更改，然后点击Done</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvM4I.png" alt="ewvM4I.png"></p><ol start="10"><li>过一小段时间，感叹号将消失。此时已经开始安装，点击<strong>ROOT PASSWORD</strong> 进行更改Root用户密码</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvuEd.png" alt="ewvuEd.png"></p><ol start="11"><li>修改Root用户密码，完成后点击两次Done</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvmHH.png" alt="ewvmHH.png"></p><ol start="12"><li>此时可以点击 <strong>USER CREATION</strong> 可以创建一个用户同时设置其密码和权限 </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvlCt.png" alt="ewvlCt.png"></p><ol start="13"><li>将该用户设为管理员级别 勾选<strong>Make this user administrator</strong> </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewveDe.png" alt="ewveDe.png"></p><ol start="14"><li>等待安装完毕，点击右下角Reboot。待重启完成后，输入root和第11步设置的root密码进行登陆。</li><li>完成安装，拔掉U盘。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Dell-R740服务器安装-Centos-7-6-步骤&quot;&gt;&lt;a href=&quot;#Dell-R740服务器安装-Centos-7-6-步骤&quot; class=&quot;headerlink&quot; title=&quot;Dell R740服务器安装 Centos 7.6 步骤&quot;&gt;&lt;/a&gt;Dell R740服务器安装 Centos 7.6 步骤&lt;/h1&gt;&lt;p&gt;其实服务器安装系统和虚拟机安装系统没什么太多的不同，注意我前边的文章《服务器装系统注意事项》中说的内容就好了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://jelly54.github.io/categories/Linux/"/>
-    
-    
-      <category term="服务器" scheme="https://jelly54.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-      <category term="系统" scheme="https://jelly54.github.io/tags/%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
   
   <entry>
     <title>Ceph踩坑指南</title>
@@ -106,6 +82,30 @@
     
     
       <category term="存储" scheme="https://jelly54.github.io/tags/%E5%AD%98%E5%82%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R740服务器装Centos7.6步骤图</title>
+    <link href="https://jelly54.github.io/2019/08/04/R740%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A3%85Centos7-6%E6%AD%A5%E9%AA%A4%E5%9B%BE/"/>
+    <id>https://jelly54.github.io/2019/08/04/R740服务器装Centos7-6步骤图/</id>
+    <published>2019-08-04T12:32:49.000Z</published>
+    <updated>2019-09-04T12:09:55.040Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Dell-R740服务器安装-Centos-7-6-步骤"><a href="#Dell-R740服务器安装-Centos-7-6-步骤" class="headerlink" title="Dell R740服务器安装 Centos 7.6 步骤"></a>Dell R740服务器安装 Centos 7.6 步骤</h1><p>其实服务器安装系统和虚拟机安装系统没什么太多的不同，注意我前边的文章《服务器装系统注意事项》中说的内容就好了。</p><a id="more"></a><ol><li>开机后按 <strong>F11</strong> 进入BootManager，选择 <strong>One-shot UEFI Boot Menu</strong>  </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewR6x0.png" alt="ewR6x0.png"></p><ol start="2"><li>选择带有USB的选项，从U盘启动 </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewRgMV.png" alt="ewRgMV.png"></p><ol start="3"><li>进入安装界面，光标移到第一个<strong>Install Centos 7</strong> 然后有两种做法</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewR0aQ.png" alt="ewR0aQ.png"></p><p>4.1 按Tab键 </p><p>按下TAB后，你会看到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 rd.live.check quiet</span><br></pre></td></tr></table></figure></p><p>把LABEL=CentOS\x207\x20x86_64修改一下改成你修改后的卷标。然后 按回车，稍等一会进入第 5 步。</p><p>4.2 第3步完成后 <strong>按e</strong> 将<strong>hd:LABEL=CentOS\x207\x20x86_64 quiet</strong> 删除一部分，改成<strong>hd:LABEL=CentOS quiet inst.gpt</strong> 按Ctrl+x启动。LABEL= 后为你的启动盘的名称。inst.gpt为你需要手动分区 GPT分割表。</p><p><img src="https://s2.ax1x.com/2019/08/02/ewRy2q.png" alt="ewRy2q.png"></p><ol start="5"><li>选择语言，默认即可，点击Continue</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewRB5j.png" alt="ewRB5j.png"></p><ol start="6"><li>下边可能存在一些感叹号，暂时不用管。选择<strong>DATE &amp; TIME</strong> </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewRrPs.png" alt="ewRrPs.png"></p><ol start="7"><li>选择 亚洲 <strong>Asia</strong>，上海 <strong>Shanghai</strong>，修改一下下边的小时，然后点击Done</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewRsGn.png" alt="ewRsGn.png"></p><ol start="8"><li>选择<strong>SOFTWARE SELECTION</strong> 选择安装的软件，勾选 <strong>Development Tools</strong> 点击Done</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvKUA.png" alt="ewvKUA.png"></p><ol start="9"><li>等一小段时间，<strong>SOFTWARE</strong> 中的两个图标中的感叹号将消失，然后选择<strong>INSTALLATION DESTINATION</strong> 选择安装设备，下边分区选择自动分区<strong>Automatically configure partitioning</strong>，需要特殊分区的待系统创建好后，手动更改，然后点击Done</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvM4I.png" alt="ewvM4I.png"></p><ol start="10"><li>过一小段时间，感叹号将消失。此时已经开始安装，点击<strong>ROOT PASSWORD</strong> 进行更改Root用户密码</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvuEd.png" alt="ewvuEd.png"></p><ol start="11"><li>修改Root用户密码，完成后点击两次Done</li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvmHH.png" alt="ewvmHH.png"></p><ol start="12"><li>此时可以点击 <strong>USER CREATION</strong> 可以创建一个用户同时设置其密码和权限 </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewvlCt.png" alt="ewvlCt.png"></p><ol start="13"><li>将该用户设为管理员级别 勾选<strong>Make this user administrator</strong> </li></ol><p><img src="https://s2.ax1x.com/2019/08/02/ewveDe.png" alt="ewveDe.png"></p><ol start="14"><li>等待安装完毕，点击右下角Reboot。待重启完成后，输入root和第11步设置的root密码进行登陆。</li><li>完成安装，拔掉U盘。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Dell-R740服务器安装-Centos-7-6-步骤&quot;&gt;&lt;a href=&quot;#Dell-R740服务器安装-Centos-7-6-步骤&quot; class=&quot;headerlink&quot; title=&quot;Dell R740服务器安装 Centos 7.6 步骤&quot;&gt;&lt;/a&gt;Dell R740服务器安装 Centos 7.6 步骤&lt;/h1&gt;&lt;p&gt;其实服务器安装系统和虚拟机安装系统没什么太多的不同，注意我前边的文章《服务器装系统注意事项》中说的内容就好了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://jelly54.github.io/categories/Linux/"/>
+    
+    
+      <category term="服务器" scheme="https://jelly54.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+      <category term="系统" scheme="https://jelly54.github.io/tags/%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   

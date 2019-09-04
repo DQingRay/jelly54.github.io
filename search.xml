@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[R740服务器装Centos7.6步骤图]]></title>
-    <url>%2F2019%2F09%2F04%2FR740%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A3%85Centos7-6%E6%AD%A5%E9%AA%A4%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[Dell R740服务器安装 Centos 7.6 步骤其实服务器安装系统和虚拟机安装系统没什么太多的不同，注意我前边的文章《服务器装系统注意事项》中说的内容就好了。 开机后按 F11 进入BootManager，选择 One-shot UEFI Boot Menu 选择带有USB的选项，从U盘启动 进入安装界面，光标移到第一个Install Centos 7 然后有两种做法 4.1 按Tab键 按下TAB后，你会看到1vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 rd.live.check quiet 把LABEL=CentOS\x207\x20x86_64修改一下改成你修改后的卷标。然后 按回车，稍等一会进入第 5 步。 4.2 第3步完成后 按e 将hd:LABEL=CentOS\x207\x20x86_64 quiet 删除一部分，改成hd:LABEL=CentOS quiet inst.gpt 按Ctrl+x启动。LABEL= 后为你的启动盘的名称。inst.gpt为你需要手动分区 GPT分割表。 选择语言，默认即可，点击Continue 下边可能存在一些感叹号，暂时不用管。选择DATE &amp; TIME 选择 亚洲 Asia，上海 Shanghai，修改一下下边的小时，然后点击Done 选择SOFTWARE SELECTION 选择安装的软件，勾选 Development Tools 点击Done 等一小段时间，SOFTWARE 中的两个图标中的感叹号将消失，然后选择INSTALLATION DESTINATION 选择安装设备，下边分区选择自动分区Automatically configure partitioning，需要特殊分区的待系统创建好后，手动更改，然后点击Done 过一小段时间，感叹号将消失。此时已经开始安装，点击ROOT PASSWORD 进行更改Root用户密码 修改Root用户密码，完成后点击两次Done 此时可以点击 USER CREATION 可以创建一个用户同时设置其密码和权限 将该用户设为管理员级别 勾选Make this user administrator 等待安装完毕，点击右下角Reboot。待重启完成后，输入root和第11步设置的root密码进行登陆。 完成安装，拔掉U盘。]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-        <tag>系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Ceph踩坑指南]]></title>
     <url>%2F2019%2F08%2F22%2FCeph%E8%B8%A9%E5%9D%91%E6%8C%87%E5%8D%97%2F</url>
     <content type="text"><![CDATA[Ceph踩坑指南环境：机器：centos 7.5 ceph Luminous版本 源：阿里云 ceph-deploy new node问题：123456Traceback (most recent call last): File &quot;/usr/bin/ceph-deploy&quot;, line 18, in &lt;module&gt; from ceph_deploy.cli import main File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/cli.py&quot;, line 1, in &lt;module&gt; import pkg_resourcesImportError: No module named pkg_resources 解决办法： python 版本问题 ，注意检查系统的python版本，此处ceph-deploy实则为通过执行python脚本来实现安装， 更改/usr/bin/ceph-deploy文件中 更改python2.6的部分为2.7（此处应当与系统python版本相同） 更改第一行文件为 #！/usr/bin/python2.7 重新执行ceph-deploy new即可 ceph-deploy disk zap node12:sdb问题： 1[ceph_deploy][ERROR ] RuntimeError: zap command needs both HOSTNAME and DISK but got &quot;None node12:sdb&quot; 解决办法： 12# 注意中间是空格，一个是名称，一个是设备ceph-deploy disk zap node12 /dev/sdb ceph-deploy disk list node12问题： 123456789101112[ceph_deploy][ERROR ] Traceback (most recent call last):[ceph_deploy][ERROR ] File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/util/decorators.py&quot;, line 69, in newfunc[ceph_deploy][ERROR ] return f(*a, **kw)[ceph_deploy][ERROR ] File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/cli.py&quot;, line 164, in _main[ceph_deploy][ERROR ] return args.func(args)[ceph_deploy][ERROR ] File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/osd.py&quot;, line 434, in disk[ceph_deploy][ERROR ] disk_list(args, cfg)[ceph_deploy][ERROR ] File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/osd.py&quot;, line 376, in disk_list[ceph_deploy][ERROR ] distro.conn.logger(line)[ceph_deploy][ERROR ] TypeError: &apos;Logger&apos; object is not callable[ceph_deploy][ERROR ] 解决办法： 待解决 这个是为了查看当前所有空闲盘用的，当拟清楚所有盘的情况时可以不执行。 [root@node12 my-cluster]# ceph-deploy disk zap node12 /dev/sdb问题： 1234567891011[ceph_deploy][ERROR ] Traceback (most recent call last):[ceph_deploy][ERROR ] File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/util/decorators.py&quot;, line 69, in newfunc[ceph_deploy][ERROR ] return f(*a, **kw)[ceph_deploy][ERROR ] File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/cli.py&quot;, line 164, in _main[ceph_deploy][ERROR ] return args.func(args)[ceph_deploy][ERROR ] File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/osd.py&quot;, line 438, in disk[ceph_deploy][ERROR ] disk_zap(args)[ceph_deploy][ERROR ] File &quot;/usr/lib/python2.7/site-packages/ceph_deploy/osd.py&quot;, line 336, in disk_zap[ceph_deploy][ERROR ] if args.debug:[ceph_deploy][ERROR ] AttributeError: &apos;Namespace&apos; object has no attribute &apos;debug&apos;[ceph_deploy][ERROR ] 解决：123456vim /usr/lib/python2.7/site-packages/ceph_deploy/osd.py # 修改第336行为 #if args.debug: if False: ceph-deploy –overwrite-conf osd create node231:vdb问题： 1[ceph_deploy][ERROR ] NeedDiskError: Must supply disk/path argument: node12:sdb 解决： 在ceph luminous中创建bluestore的过程为指定data，block-db，block-wal 例如执行12345# 数据日志存在不同的盘符ceph-deploy osd create node1 --data /dev/sde --block-db /dev/sdf1 --block-wal /dev/sdf2# 省略db 与wal的说明，只指定data则为 (创建于同一个盘)ceph-deploy osd create node1 --data /dev/sdb ceph -s问题：12health: HEALTH_WARN no active mgr 解决： Ceph Manager Daemon，简称ceph-mgr。 该组件的主要作用是分担和扩展monitor的部分功能，减轻monitor的负担，让更好地管理ceph存储系统ceph ceph在 luminous中新加入了mgr功能模块，手动安装mgr即可1ceph-deploy mgr create node01 node02 node03 crush rule 常用命令记录12345ceph osd getcrushmap -o /tmp/crush crushtool -d /tmp/crush -o /tmp/crush.txtcrushtool -c /tmp/crush.txt -o /tmp/crush.binceph osd setcrushmap -i /tmp/crush.bin]]></content>
@@ -43,6 +31,18 @@
       </categories>
       <tags>
         <tag>存储</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[R740服务器装Centos7.6步骤图]]></title>
+    <url>%2F2019%2F08%2F04%2FR740%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A3%85Centos7-6%E6%AD%A5%E9%AA%A4%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[Dell R740服务器安装 Centos 7.6 步骤其实服务器安装系统和虚拟机安装系统没什么太多的不同，注意我前边的文章《服务器装系统注意事项》中说的内容就好了。 开机后按 F11 进入BootManager，选择 One-shot UEFI Boot Menu 选择带有USB的选项，从U盘启动 进入安装界面，光标移到第一个Install Centos 7 然后有两种做法 4.1 按Tab键 按下TAB后，你会看到1vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 rd.live.check quiet 把LABEL=CentOS\x207\x20x86_64修改一下改成你修改后的卷标。然后 按回车，稍等一会进入第 5 步。 4.2 第3步完成后 按e 将hd:LABEL=CentOS\x207\x20x86_64 quiet 删除一部分，改成hd:LABEL=CentOS quiet inst.gpt 按Ctrl+x启动。LABEL= 后为你的启动盘的名称。inst.gpt为你需要手动分区 GPT分割表。 选择语言，默认即可，点击Continue 下边可能存在一些感叹号，暂时不用管。选择DATE &amp; TIME 选择 亚洲 Asia，上海 Shanghai，修改一下下边的小时，然后点击Done 选择SOFTWARE SELECTION 选择安装的软件，勾选 Development Tools 点击Done 等一小段时间，SOFTWARE 中的两个图标中的感叹号将消失，然后选择INSTALLATION DESTINATION 选择安装设备，下边分区选择自动分区Automatically configure partitioning，需要特殊分区的待系统创建好后，手动更改，然后点击Done 过一小段时间，感叹号将消失。此时已经开始安装，点击ROOT PASSWORD 进行更改Root用户密码 修改Root用户密码，完成后点击两次Done 此时可以点击 USER CREATION 可以创建一个用户同时设置其密码和权限 将该用户设为管理员级别 勾选Make this user administrator 等待安装完毕，点击右下角Reboot。待重启完成后，输入root和第11步设置的root密码进行登陆。 完成安装，拔掉U盘。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>系统</tag>
       </tags>
   </entry>
   <entry>
