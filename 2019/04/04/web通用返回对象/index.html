@@ -140,18 +140,18 @@
 
 
 
-<meta name="description" content="web通用返回对象 项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
+<meta name="description" content="web通用返回对象项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。 下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
 <meta name="keywords" content="java web,构建者模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web通用返回对象">
 <meta property="og:url" content="https://jelly54.github.io/2019/04/04/web通用返回对象/index.html">
 <meta property="og:site_name" content="爱吃jelly的Jelly">
-<meta property="og:description" content="web通用返回对象 项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
+<meta property="og:description" content="web通用返回对象项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。 下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-04T10:50:18.167Z">
+<meta property="og:updated_time" content="2019-09-04T11:10:05.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web通用返回对象">
-<meta name="twitter:description" content="web通用返回对象 项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
+<meta name="twitter:description" content="web通用返回对象项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。 下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
 
 
 
@@ -480,9 +480,8 @@
       
 
       
-        <h1 id="web通用返回对象"><a href="#web通用返回对象" class="headerlink" title="web通用返回对象"></a>web通用返回对象</h1><blockquote>
-<p>项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。<br>下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。</p>
-</blockquote>
+        <h1 id="web通用返回对象"><a href="#web通用返回对象" class="headerlink" title="web通用返回对象"></a>web通用返回对象</h1><p>项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。</p>
+<p>下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。</p>
 <a id="more"></a>
 <h2 id="Result类属性"><a href="#Result类属性" class="headerlink" title="Result类属性"></a>Result类属性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static final int SUCCESS_CODE = 200;</span><br><span class="line">public static final int ERROR_CODE = 500;</span><br><span class="line">public static final String SUCCESS_MSG = &quot;success&quot;;</span><br><span class="line">public static final String FAIL_MSG = &quot;fail&quot;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 返回是否成功</span><br><span class="line"> */</span><br><span class="line">private Boolean success;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 返回信息</span><br><span class="line"> */</span><br><span class="line">private String msg;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 返回消息类型</span><br><span class="line"> */</span><br><span class="line">private Integer code;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 返回数据</span><br><span class="line"> */</span><br><span class="line">private Object data;</span><br></pre></td></tr></table></figure>
 <h2 id="使用Result的构建者"><a href="#使用Result的构建者" class="headerlink" title="使用Result的构建者"></a>使用Result的构建者</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Result的构建者 public static class Builder</span><br><span class="line"></span><br><span class="line">private Boolean success;</span><br><span class="line"></span><br><span class="line">private String msg = SUCCESS_MSG;</span><br><span class="line"></span><br><span class="line">private Integer code = SUCCESS_CODE;</span><br><span class="line"></span><br><span class="line">private Object data;</span><br></pre></td></tr></table></figure>
@@ -499,6 +498,7 @@
 <h1 id="使用注解和通用返回类"><a href="#使用注解和通用返回类" class="headerlink" title="使用注解和通用返回类"></a>使用注解和通用返回类</h1><p><strong>@ResponseStatus(value = HttpStatus.UNAUTHORIZED)</strong> 可以指定返回的状态码。配合第一个通用返回类可以达到浏览器识别我们定义的状态码，同时我们自定义属于业务的特定的返回code，msg等。</p>
 <p><strong>缺点：</strong> 编码复杂的提高，需要提前规划哪些自定义的code属于哪个HttpStatus中的状态码。响应状态码，范围放大到一个请求Mapping，太宽泛。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 简单示例</span><br><span class="line">@GetMapping(&quot;/http-code-2&quot;)</span><br><span class="line">@ResponseStatus(value = HttpStatus.UNAUTHORIZED)</span><br><span class="line">public Result testRes() &#123;</span><br><span class="line">    return Result.ok(&quot;未授权！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
 <h1 id="使用ResponseEntity和通用返回类"><a href="#使用ResponseEntity和通用返回类" class="headerlink" title="使用ResponseEntity和通用返回类"></a>使用ResponseEntity和通用返回类</h1><p>既可以自定义符合业务的code、data、msg而且可以使用浏览器支持的状态码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;/http-code&quot;)</span><br><span class="line">public ResponseEntity&lt;Result&gt; testHttpCode() &#123;</span><br><span class="line">    return new ResponseEntity&lt;&gt;(Result.ok().msg(&quot;hei 哈！&quot;), HttpStatus.ACCEPTED);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
@@ -528,7 +528,7 @@
   <p><span>本文标题:</span><a href="/2019/04/04/web通用返回对象/">web通用返回对象</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Big Jelly 的个人博客">Big Jelly</a></p>
   <p><span>发布时间:</span>2019年04月04日 - 18:26</p>
-  <p><span>最后更新:</span>2019年09月04日 - 18:50</p>
+  <p><span>最后更新:</span>2019年09月04日 - 19:10</p>
   <p><span>原始链接:</span><a href="/2019/04/04/web通用返回对象/" title="web通用返回对象">https://jelly54.github.io/2019/04/04/web通用返回对象/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://jelly54.github.io/2019/04/04/web通用返回对象/"  aria-label="复制成功！"></i></span>
   </p>
@@ -700,7 +700,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -711,7 +711,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -722,7 +722,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -845,7 +845,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">35.1k</span>
+    <span title="Site words total count">36.8k</span>
   
   <span class="post-meta-divider">|</span>
 <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
