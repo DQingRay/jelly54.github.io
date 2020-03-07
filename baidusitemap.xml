@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jelly54.github.io/net-protocol-tcp/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
     <loc>https://jelly54.github.io/web-response/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/server-UltraISO/</loc>
+    <loc>https://jelly54.github.io/tool-IDEA-Lombok/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/server-attention/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/server-R740-Centos/</loc>
+    <loc>https://jelly54.github.io/tool-IDEA-Gradle/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/thread-communicate/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/ceph-problems/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/ceph-principle/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/ceph-cros/</loc>
+    <loc>https://jelly54.github.io/storage-NFS/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/storage-distributed/</loc>
@@ -34,10 +22,10 @@
     <loc>https://jelly54.github.io/springs-start/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/springs-principle/</loc>
+    <loc>https://jelly54.github.io/springb-start2advanced/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/springb-start2advanced/</loc>
+    <loc>https://jelly54.github.io/springb-redis2sms/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/springb-getpost/</loc>
@@ -46,7 +34,16 @@
     <loc>https://jelly54.github.io/springb-enumGender/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/springb-redis2sms/</loc>
+    <loc>https://jelly54.github.io/server-UltraISO/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/server-R740-Centos/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/server-attention/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/net-protocol-tcp/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/mybatis-plusStart/</loc>
@@ -55,13 +52,43 @@
     <loc>https://jelly54.github.io/mybatis-param/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/shiro-principle/</loc>
+    <loc>https://jelly54.github.io/mirror-iso/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/java-designParten/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/java-autoBox/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/hello-stranger/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/ceph-problems/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/alg-timeComplex/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
+    <loc>https://jelly54.github.io/alg-simpleSort/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
     <loc>https://jelly54.github.io/alg-masterForm/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/alg-frequenceCode/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/ceph-principle/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/ceph-cros/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/springs-principle/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/shiro-principle/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/java-dynamicProxy/</loc>
@@ -82,37 +109,10 @@
     <loc>https://jelly54.github.io/java-equalHashcode/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/004static%E5%85%B3%E9%94%AE%E5%AD%97/</loc>
+    <loc>https://jelly54.github.io/java-static/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/java-finalxxx/</loc>
     <lastmod>2020-03-07</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/java-autoBox/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/java-designParten/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/alg-frequenceCode/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/alg-simpleSort/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/tool-IDEA-Lombok/</loc>
-    <lastmod>2019-10-24</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/tool-IDEA-Gradle/</loc>
-    <lastmod>2019-10-24</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/storage-NFS/</loc>
-    <lastmod>2019-10-24</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/hello-stranger/</loc>
-    <lastmod>2019-10-24</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/mirror-iso/</loc>
-    <lastmod>2019-10-24</lastmod>
   </url>
 </urlset>

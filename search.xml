@@ -69,7 +69,7 @@
   </entry>
   <entry>
     <title><![CDATA[004static关键字]]></title>
-    <url>%2F004static%E5%85%B3%E9%94%AE%E5%AD%97%2F</url>
+    <url>%2Fjava-static%2F</url>
     <content type="text"><![CDATA[Java中static可以修饰类、变量、方法甚至可以构成静态块，让我们来了解下它们各自的使用以及加载顺序吧。 基本用法static关键字修饰类java里面用static修饰内部类，普通类是不允许声明为静态的，只有内部类才可以。 1234567891011121314151617public class StaticTest &#123; //static关键字修饰内部类 public static class InnerClass&#123; InnerClass()&#123; System.out.println("============= 静态内部类============="); &#125; public void InnerMethod() &#123; System.out.println("============= 静态内部方法============="); &#125; &#125; public static void main(String[] args) &#123; //直接通过StaticTest类名访问静态内部类InnerClass InnerClass inner=new StaticTest.InnerClass(); //静态内部类可以和普通类一样使用 inner.InnerMethod(); &#125;&#125; 如果没有用static修饰InterClass，则只能new 一个外部类实例。再通过外部实例创建内部类。 static关键字修饰方法修饰方法的时候，其实跟类一样，可以直接通过类名来进行调用： 123456789101112public class StaticMethod &#123; public static void test() &#123; System.out.println("============= 静态方法============="); &#125;; public static void main(String[] args) &#123; //方式一：直接通过类名 StaticMethod.test(); //方式二：通过对象调用 StaticMethod fdd=new StaticMethod(); fdd.test(); &#125;&#125; static关键字修饰变量被static修饰的成员变量叫做静态变量，也叫做类变量，说明这个变量是属于这个类的，而不是属于是对象，没有被static修饰的成员变量叫做实例变量，说明这个变量是属于某个具体的对象的。 我们同样可以使用上面的方式进行调用变量： 12345678public class StaticVar &#123; private static String name="java技术栈"; public static void main(String[] args) &#123; //直接通过类名 StaticVar.name; &#125;&#125; static关键字修饰代码块静态代码块在类第一次被载入时执行，在这里主要是想验证一下，类初始化的顺序。 12345678910111213父类静态变量父类静态代码块子类静态变量子类静态代码块父类普通变量父类普通代码块父类构造函数子类普通变量子类普通代码块子类构造函数 1234567891011121314151617181920212223242526272829303132333435363738394041424344//首先我们定义一个父类public class Father &#123; // 父类静态变量 public static String str1 = "father static str"; // 父类普通变量 public String str2 = "father common str"; // 父类静态代码块 static &#123; System.out.println("father static block"); &#125; // 父类普通代码块 &#123; System.out.println("father common block"); &#125; // 父类构造方法 public Father() &#123; System.out.println("father constructor"); &#125;&#125;//然后定义一个子类public class Child extends Father &#123; // 子类静态变量 public static String str1 = "child static str"; // 子类普通变量 public String str2 = "child common str"; // 子类静态代码块 static &#123; System.out.println("child static block"); &#125; // 子类普通代码块 &#123; System.out.println("child common block"); &#125; // 子类构造方法 public Child() &#123; System.out.println("child constructor"); &#125;&#125;// 测试public static void main(String[] args) &#123; new Child();&#125; 输出为： 123456father static blockchild static blockfather common blockfather constructorchild common blockchild constructor 原理讲解 上图为jvm运行时数据区，静态变量存放在方法区中，并且是被所有线程所共享的。 方法区中包含的都是在整个程序中永远唯一的元素，如类信息、static变量等。 举例定义一个类，包含静态变量、静态方法。 12345678910111213141516171819202122232425262728public class Person&#123; //静态变量 static String firstName; String lastName; public void showName()&#123; System.out.println(firstName+lastName); &#125; //静态方法 public static void viewName()&#123; System.out.println(firstName); &#125; public static void main(String[] args) &#123; Person p =new Person(); Person.firstName = "张"; p.lastName="三"; p.showName(); Person p2 =new Person(); Person.firstName="李"; p2.lastName="四"; p2.showName(); &#125;&#125;//输出。张三、李四 从内存的角度看一下： 从上面可以看到，我们的方法在调用静态方法、变量的时候，是从方法区调用的，但是调用普通变量是从堆内存中调用的，堆内存中的成员变量lastname是随着对象的产生而产生，随着对象的消失而消失。静态变量是所有线程共享的，所以不会消失。 小结特点 static是一个修饰符，用于修饰成员。（成员变量，成员函数）static修饰的成员变量称之为静态变量或类变量。 static修饰的成员被所有的对象共享。 static优先于对象存在，因为static的成员在类的加载时初始化。 static修饰的成员多了一种调用方式，可以直接被类名所调用，（类名.静态成员）。 static修饰的数据是共享数据，对象中的变量的是特有的数据。 成员变量和静态变量的区别 生命周期的不同： 成员变量随着对象的创建而存在随着对象的回收而释放。 静态变量随着类的加载而存在随着类的消失而消失。 调用方式不同： 成员变量只能被对象调用。 静态变量可以被对象调用，也可以用类名调用。（推荐用类名调用） 别名不同： 成员变量也称为实例变量。 静态变量称为类变量。 数据存储位置不同： 成员变量数据存储在堆内存的对象中，所以也叫对象的特有数据。 静态变量数据存储在方法区（共享数据区）的静态区，所以也叫对象的共享数据。 静态使用时需要注意的事项： 静态方法只能访问静态成员。（非静态既可以访问静态，又可以访问非静态） 静态方法中不可以使用this或者super关键字。 主函数是静态的]]></content>
       <categories>
         <category>Java基础</category>
@@ -88,8 +88,8 @@
       </categories>
       <tags>
         <tag>Java关键字</tag>
-        <tag>异常</tag>
         <tag>垃圾回收</tag>
+        <tag>异常</tag>
       </tags>
   </entry>
   <entry>
@@ -239,8 +239,8 @@
         <category>操作系统</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>服务器</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -251,9 +251,9 @@
         <category>操作系统</category>
       </categories>
       <tags>
+        <tag>Linux</tag>
         <tag>启动盘</tag>
         <tag>操作系统</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -276,9 +276,9 @@
       </categories>
       <tags>
         <tag>踩坑指南</tag>
-        <tag>操作系统</tag>
-        <tag>Linux</tag>
         <tag>服务器</tag>
+        <tag>Linux</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
