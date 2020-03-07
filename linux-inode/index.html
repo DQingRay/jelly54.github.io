@@ -132,7 +132,7 @@
 
 
 
-  <meta name="keywords" content="java web,构建者模式,">
+  <meta name="keywords" content="原理,Linux,操作系统,">
 
 
 
@@ -145,18 +145,21 @@
 
 
 
-<meta name="description" content="web通用返回对象项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。 下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
-<meta name="keywords" content="java web,构建者模式">
+<meta name="description" content="inode定义inode是linux系统中用作数据索引的标识符。简单来说，inode指示了一个文件的基本信息，如inode编号、修改时间、文件的位置等。 如同一本书的目录，会直接告诉你想看的章节是在第几页。不同的是，书是以页为单位的，而Linux文件存取是以“块”为单位的。">
+<meta name="keywords" content="原理,Linux,操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="web通用返回对象">
-<meta property="og:url" content="https://jelly54.github.io/web-response/index.html">
+<meta property="og:title" content="硬链接、软连接引出的inode">
+<meta property="og:url" content="https://jelly54.github.io/linux-inode/index.html">
 <meta property="og:site_name" content="爱吃jelly的Jelly">
-<meta property="og:description" content="web通用返回对象项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。 下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
+<meta property="og:description" content="inode定义inode是linux系统中用作数据索引的标识符。简单来说，inode指示了一个文件的基本信息，如inode编号、修改时间、文件的位置等。 如同一本书的目录，会直接告诉你想看的章节是在第几页。不同的是，书是以页为单位的，而Linux文件存取是以“块”为单位的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-07T09:13:26.816Z">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/07/3XH3E6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/07/3XHG4O.png">
+<meta property="og:updated_time" content="2020-03-07T09:18:40.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="web通用返回对象">
-<meta name="twitter:description" content="web通用返回对象项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。 下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。">
+<meta name="twitter:title" content="硬链接、软连接引出的inode">
+<meta name="twitter:description" content="inode定义inode是linux系统中用作数据索引的标识符。简单来说，inode指示了一个文件的基本信息，如inode编号、修改时间、文件的位置等。 如同一本书的目录，会直接告诉你想看的章节是在第几页。不同的是，书是以页为单位的，而Linux文件存取是以“块”为单位的。">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/03/07/3XH3E6.png">
 
 
 
@@ -186,7 +189,7 @@
 
 
 
-  <link rel="canonical" href="https://jelly54.github.io/web-response/">
+  <link rel="canonical" href="https://jelly54.github.io/linux-inode/">
 
 
 
@@ -199,7 +202,7 @@
 
 <meta name="google-site-verification" content="VmrkZiYJtPrIIH8zlY82aG2_l1Ykrp3JZ3HQbMt0qCo">
 
-  <title>web通用返回对象 | 爱吃jelly的Jelly</title>
+  <title>硬链接、软连接引出的inode | 爱吃jelly的Jelly</title>
   
 
 
@@ -370,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jelly54.github.io/web-response/">
+    <link itemprop="mainEntityOfPage" href="https://jelly54.github.io/linux-inode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Big Jelly">
@@ -387,7 +390,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">web通用返回对象</h1>
+          <h1 class="post-title" itemprop="name headline">硬链接、软连接引出的inode</h1>
         
 
         <div class="post-meta">
@@ -399,8 +402,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T18:26:42+08:00">
-                2019-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-27T17:15:40+08:00">
+                2019-11-27
               </time>
             
 
@@ -422,8 +425,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/代码工具/" itemprop="url" rel="index">
-                    <span itemprop="name">代码工具</span>
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
                   </a>
                 </span>
 
@@ -453,7 +456,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  2.7k
                 </span>
               
 
@@ -469,7 +472,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  10
                 </span>
               
             </div>
@@ -490,38 +493,138 @@
       
 
       
-        <h1 id="web通用返回对象"><a href="#web通用返回对象" class="headerlink" title="web通用返回对象"></a>web通用返回对象</h1><p>项目做前后端分离时，我们会经常提供一些数据给前端，为了规范传出数据的格式，通常会定义一个统一的返回工具类，用以标明响应是否成功，数据是否正常返回等。</p>
-<p>下文使用到了构建者模式设计了一个通用返回类。使用简单方便，返回格式清晰明了。</p>
+        <h1 id="inode定义"><a href="#inode定义" class="headerlink" title="inode定义"></a>inode定义</h1><p>inode是linux系统中<strong>用作数据索引的标识符</strong>。简单来说，inode指示了一个文件的基本信息，如inode编号、修改时间、文件的位置等。</p>
+<p>如同一本书的目录，会直接告诉你想看的章节是在第几页。不同的是，书是以页为单位的，而Linux文件存取是以“块”为单位的。</p>
 <a id="more"></a>
 
-<h2 id="Result类属性"><a href="#Result类属性" class="headerlink" title="Result类属性"></a>Result类属性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public static final int SUCCESS_CODE = 200;</span><br><span class="line">public static final int ERROR_CODE = 500;</span><br><span class="line">public static final String SUCCESS_MSG = &quot;success&quot;;</span><br><span class="line">public static final String FAIL_MSG = &quot;fail&quot;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 返回是否成功</span><br><span class="line"> */</span><br><span class="line">private Boolean success;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 返回信息</span><br><span class="line"> */</span><br><span class="line">private String msg;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 返回消息类型</span><br><span class="line"> */</span><br><span class="line">private Integer code;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 返回数据</span><br><span class="line"> */</span><br><span class="line">private Object data;</span><br></pre></td></tr></table></figure>
+<h2 id="找寻文件"><a href="#找寻文件" class="headerlink" title="找寻文件"></a>找寻文件</h2><p>操作系统在读取硬盘的时候，会一次性读取一个“块”（一个“块”的大小往往是4KB，包含了连续8个扇区，每个扇区存储512个字节）。而inode就告诉了文件位于哪个“块”，于是系统就会从这个“块”开始读取内容，我们就可以看到文件的内容。</p>
+<p>每个文件都有对应的inode，存储着这个文件的基本信息。Linux系统不使用文件名，而使用inode号来识别文件。对于使用者，我们是通过文件名寻找、打开文件；对于系统，是通过以下三步找到的：</p>
+<ol>
+<li>系统找到这个文件名对应的inode号</li>
+<li>通过inode号，获取inode信息</li>
+<li>根据inode信息，找到文件数据所在的block，读取内容</li>
+</ol>
+<h2 id="inode内容"><a href="#inode内容" class="headerlink" title="inode内容"></a>inode内容</h2><p>inode 包含了文件的以下基本信息：</p>
+<ul>
+<li>文件的字节数</li>
+<li>node 编号</li>
+<li>文件拥有者的 Uid</li>
+<li>文件所属group的 Gid</li>
+<li>文件的读、写、执行权限</li>
+<li>文件的时间戳，共有三个：<ul>
+<li>change：inode 上一次变动的时间</li>
+<li>modify：文件内容上一次变动的时间</li>
+<li>access：文件上一次打开的时间</li>
+</ul>
+</li>
+<li>链接数，即有多少文件名指向这个inode</li>
+<li>文件数据 block 的位置</li>
+</ul>
+<p>我们可以使用 <strong>stat</strong> 命令查看文件的inode信息，如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> stat v0.1.0.zip </span><br><span class="line">  File: ‘v0.1.0.zip’</span><br><span class="line">  Size: 94267     	Blocks: 192        IO Block: 4096   regular file</span><br><span class="line">Device: 811h/2065d	Inode: 5659765     Links: 1</span><br><span class="line">Access: (0640/-rw-r-----)  Uid: ( 3457/mart_bda)   Gid: ( 3457/mart_bda)</span><br><span class="line">Access: 2018-06-12 14:22:18.434027485 +0800</span><br><span class="line">Modify: 2018-06-12 14:18:00.840994081 +0800</span><br><span class="line">Change: 2018-06-12 14:18:00.840994081 +0800</span><br><span class="line"> Birth: -</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用Result的构建者"><a href="#使用Result的构建者" class="headerlink" title="使用Result的构建者"></a>使用Result的构建者</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Result的构建者 public static class Builder</span><br><span class="line"></span><br><span class="line">private Boolean success;</span><br><span class="line"></span><br><span class="line">private String msg = SUCCESS_MSG;</span><br><span class="line"></span><br><span class="line">private Integer code = SUCCESS_CODE;</span><br><span class="line"></span><br><span class="line">private Object data;</span><br></pre></td></tr></table></figure>
+<p>也可以在 <strong>ls</strong> 后加上 <strong>-i</strong> 直接获取inode编号:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls -i v0.1.0.zip </span><br><span class="line">5659765 v0.1.0.zip</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 在Controller中可以直接作为方法的返回值，返回给客户端</span><br><span class="line"> * </span><br><span class="line"> * 1. Result r = Result.createBuilder().build();</span><br><span class="line"> * 2. Result r = Result.createBuilder()[.success(true).msg(&quot;msg&quot;).code(0).data(obj)].build();</span><br><span class="line"> * 3. Result r = Result.ok().build();</span><br><span class="line"> * 4. Result r = Result.ok(&quot;msg&quot;).build();</span><br><span class="line"> * 5. Result r = Result.ok(data).build();</span><br><span class="line"> * 6. Result r = Result.error().build();</span><br><span class="line"> * 7. Result r = Result.error(&quot;msg&quot;).build();</span><br><span class="line"> * 8. Result r = Result.error(data).build();</span><br><span class="line"> * 9. Result r = Result.error(ErrorStatus.XXX).build();</span><br><span class="line"> * 10. Result r = Result.error(ErrorStatus.XXX, &quot;msg1&quot;, &quot;msg2&quot;).build();</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<h2 id="inode大小"><a href="#inode大小" class="headerlink" title="inode大小"></a>inode大小</h2><p>inode存储了文件的基本信息，虽然信息很少，但是也会占用空间。<br>硬盘格式化的时候，操作系统自动将硬盘分为两个区域：</p>
+<ul>
+<li>数据区：存放文件内容</li>
+<li>inode 区：存放 inode 包含的信息，也叫作 inode table</li>
+</ul>
+<p>每个 inode 节点的大小，一般是 128 字节或 256 字节。<strong>inode节点的总数，在硬盘格式化时就固定了</strong>。一般，数据区每1KB或2KB，inode区就会增加一个 inode。</p>
+<p>假如在一块 1GB 的硬盘中，每个 inode 节点的大小为 128 字节，那么 inode 表的大小就会达到 128 MB，占整块硬盘的 12.8%。既然 inode 节点总数是有限的，那么分区的节点数就有用完的时候，一旦 <strong>inode 用完，即使磁盘空间还有剩余，也不能再存放任何数据</strong>，因为需要保证每个文件必须有一个 inode。</p>
+<p>查看每个硬盘分区的 inode 或者磁盘容量的使用情况，可以使用 df 命令加上参数 -i 或者 -h，如：</p>
+<blockquote>
+<p>文件-h, –human-readable 使用人类可读的格式(预设值是不加这个选项的…)</p>
+<p>文件-H, –si 很像 -h, 但是用 1000 为单位而不是用 1024</p>
+<p>文件-i, –inodes 列出 inode 资讯，不列出已使用 block</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> df -i</span><br><span class="line">Filesystem        Inodes   IUsed     IFree IUse% Mounted on</span><br><span class="line">/dev/sda5      275436544  801853 274634691    1% /</span><br><span class="line">devtmpfs         8192960     524   8192436    1% /dev</span><br><span class="line">tmpfs            8195307       4   8195303    1% /dev/shm</span><br><span class="line">tmpfs            8195307     765   8194542    1% /run</span><br><span class="line">tmpfs            8195307      13   8195294    1% /sys/fs/cgroup</span><br><span class="line">/dev/sda2         204800     342    204458    1% /boot</span><br><span class="line">/dev/sdb1       11443200 3329257   8113943   30% /data0</span><br><span class="line">tmpfs            8195307       1   8195306    1% /run/user/0</span><br><span class="line">tmpfs            8195307       1   8195306    1% /run/user/3457</span><br><span class="line"><span class="meta">$</span> df -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/sda5       263G  134G  130G  51% /</span><br><span class="line">devtmpfs         32G     0   32G   0% /dev</span><br><span class="line">tmpfs            32G   12K   32G   1% /dev/shm</span><br><span class="line">tmpfs            32G  394M   31G   2% /run</span><br><span class="line">tmpfs            32G     0   32G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda2       197M  139M   58M  71% /boot</span><br><span class="line">/dev/sdb1        11T  5.2T  5.2T  51% /data0</span><br><span class="line">tmpfs           6.3G     0  6.3G   0% /run/user/0</span><br><span class="line">tmpfs           6.3G     0  6.3G   0% /run/user/3457</span><br></pre></td></tr></table></figure>
 
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>Result 类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line">import com.xxxx.constant.ErrorStatus;</span><br><span class="line"></span><br><span class="line">import java.text.MessageFormat;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @version V1.0</span><br><span class="line"> * @author: big jelly</span><br><span class="line"> * @program: xx</span><br><span class="line"> * @description: 返回结果类</span><br><span class="line"> * @date: 2019-04-01 15:23</span><br><span class="line"> **/</span><br><span class="line">public class Result &#123;</span><br><span class="line">    public static final int SUCCESS_CODE = 200;</span><br><span class="line">    public static final int ERROR_CODE = 500;</span><br><span class="line">    public static final String SUCCESS_MSG = &quot;success&quot;;</span><br><span class="line">    public static final String FAIL_MSG = &quot;fail&quot;;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 返回是否成功</span><br><span class="line">     */</span><br><span class="line">    private Boolean success;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 返回信息</span><br><span class="line">     */</span><br><span class="line">    private String msg;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 返回消息类型</span><br><span class="line">     */</span><br><span class="line">    private Integer code;</span><br><span class="line"></span><br><span class="line">    private Object data;</span><br><span class="line"></span><br><span class="line">    private Result(Builder builder) &#123;</span><br><span class="line">        this.success = builder.success;</span><br><span class="line">        this.msg = builder.msg;</span><br><span class="line">        this.code = builder.code;</span><br><span class="line">        this.data = builder.data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Result的建造者</span><br><span class="line">     * &lt;p&gt;</span><br><span class="line">     * 使用方法：</span><br><span class="line">     * 1. Result r = Result.createBuilder().build();</span><br><span class="line">     * 2. Result r = Result.createBuilder()[.success(true).msg(&quot;msg&quot;).code(0).data(obj)].build();</span><br><span class="line">     * 3. Result r = Result.ok().build();</span><br><span class="line">     * 4. Result r = Result.ok(&quot;msg&quot;).build();</span><br><span class="line">     * 5. Result r = Result.ok(data).build();</span><br><span class="line">     * 6. Result r = Result.error().build();</span><br><span class="line">     * 7. Result r = Result.error(&quot;msg&quot;).build();</span><br><span class="line">     * 8. Result r = Result.error(data).build();</span><br><span class="line">     * 9. Result r = Result.error(ErrorStatus.XXX).build();</span><br><span class="line">     * 10. Result r = Result.error(ErrorStatus.XXX, &quot;msg1&quot;, &quot;msg2&quot;).build();</span><br><span class="line">     * &lt;/p&gt;</span><br><span class="line">     */</span><br><span class="line">    public static class Builder &#123;</span><br><span class="line"></span><br><span class="line">        private Boolean success;</span><br><span class="line"></span><br><span class="line">        private String msg = SUCCESS_MSG;</span><br><span class="line"></span><br><span class="line">        private Integer code = SUCCESS_CODE;</span><br><span class="line"></span><br><span class="line">        private Object data;</span><br><span class="line"></span><br><span class="line">        public Builder success(Boolean success) &#123;</span><br><span class="line">            this.success = success;</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public Builder msg(String msg) &#123;</span><br><span class="line">            this.msg = msg;</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public Builder code(Integer code) &#123;</span><br><span class="line">            this.code = code;</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public Builder data(Object data) &#123;</span><br><span class="line">            this.data = data;</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public Result build() &#123;</span><br><span class="line">            return new Result(this);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Builder createBuilder() &#123;</span><br><span class="line">        return new Builder();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Builder ok() &#123;</span><br><span class="line">        return createBuilder().success(Boolean.TRUE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Builder ok(String msg) &#123;</span><br><span class="line">        return ok().msg(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Builder ok(Object data) &#123;</span><br><span class="line">        return ok().data(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Builder error() &#123;</span><br><span class="line">        return createBuilder().success(Boolean.FALSE).code(ERROR_CODE).msg(FAIL_MSG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Builder error(String msg) &#123;</span><br><span class="line">        return error().msg(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Builder error(Object data) &#123;</span><br><span class="line">        return error().data(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Builder error(ErrorStatus status) &#123;</span><br><span class="line">        return error(status, &quot;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 使用MessageFormat格式化返回消息</span><br><span class="line">     *</span><br><span class="line">     * @param status</span><br><span class="line">     * @param msgArgs 要替换的msg</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public static Builder error(ErrorStatus status, Object... msgArgs) &#123;</span><br><span class="line">        String msg = MessageFormat.format(status.message(), msgArgs);</span><br><span class="line">        return error().code(status.value()).msg(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Boolean getSuccess() &#123;</span><br><span class="line">        return success;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setSuccess(Boolean success) &#123;</span><br><span class="line">        this.success = success;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getMsg() &#123;</span><br><span class="line">        return msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setMsg(String msg) &#123;</span><br><span class="line">        this.msg = msg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Integer getCode() &#123;</span><br><span class="line">        return code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setCode(Integer code) &#123;</span><br><span class="line">        this.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Object getData() &#123;</span><br><span class="line">        return data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setData(Object data) &#123;</span><br><span class="line">        this.data = data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于 df -h -i 的区别，可以参考 <a href="http://www.runoob.com/linux/linux-comm-df.html" target="_blank" rel="noopener">Linux df命令</a>。</p>
+<h1 id="文件操作对-inode-的影响"><a href="#文件操作对-inode-的影响" class="headerlink" title="文件操作对 inode 的影响"></a>文件操作对 inode 的影响</h1><p>要理解文件的操作对 inode 的影响，先要理解目录的原理。目录对外表现是一个容器，存放着子文件和子目录，实际上在系统内部，目录本身也是一个文件，目录文件的内容即是该目录下的文件名与 inode 号的映射表（即一个个的目录项）。</p>
+<p>因此，linux访问一个文件时，要先查询到上一级目录，根据目录内容查找到文件对应的 inode号，然后读取对应的 block。</p>
+<h2 id="cp-命令"><a href="#cp-命令" class="headerlink" title="cp 命令"></a>cp 命令</h2><p>系统内部会执行以下操作：</p>
+<ol>
+<li><p>分配一个未被使用的 inode 号，在 inode 表中新添一个项目。如果是覆盖复制，则 inode号不变，沿用之前同名文件的 inode 号。</p>
+</li>
+<li><p>在目录中新建一个目录项，并指向步骤 1 中的 inode。</p>
+</li>
+<li><p>把数据复制到 block 中。</p>
+</li>
+</ol>
+<h2 id="rm-命令"><a href="#rm-命令" class="headerlink" title="rm 命令"></a>rm 命令</h2><p>系统内部会执行以下操作：</p>
+<ol>
+<li><p>减少待删除文件名所对应的 inode 的链接数量，如果链接数变为0，则释放 inode，同时数据块放到可用空间中（对外表现为数据已删除，因为随时可以覆盖。如果没有覆盖，数据还可以恢复；一旦覆盖了，那么删除的数据无法恢复。）。</p>
+</li>
+<li><p>删除目录中的目录项。</p>
+</li>
+</ol>
+<h2 id="mv-命令"><a href="#mv-命令" class="headerlink" title="mv 命令"></a>mv 命令</h2><p>如果目标文件和源文件属于同一个文件系统：</p>
+<ol>
+<li>在目标文件的目录中新建目录项</li>
+<li>删除源文件的目录中的目录项</li>
+<li>目标文件名会指向源文件名的 inode。因此该操作对 inode 没有影响（除了时间戳），对数据的位置也没有影响，不移动任何数据。</li>
+</ol>
+<p>如果目标文件和源文件属于不同文件系统:</p>
+<ol>
+<li>相当于 cp + rm。</li>
+</ol>
+<h2 id="ln-命令"><a href="#ln-命令" class="headerlink" title="ln 命令"></a>ln 命令</h2><h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>一般情况下，文件名和 inode 号是一一对应，但是也<strong>有可能多个文件名指向同一个inode号</strong>，即硬链接。</p>
+<ul>
+<li>硬链接可以实现用不同的文件名访问同一个文件；</li>
+<li>对文件内容修改，会影响到所有的文件名；</li>
+<li>但是，删除一个文件名，不影响其他文件名的访问。</li>
+</ul>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XH3E6.png" alt="3XH3E6.png"></p>
+<h4 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h4><p>创建硬链接的命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln [source file] [new file]</span><br></pre></td></tr></table></figure>
 
-<p>ErrorStatus 类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @version V1.0</span><br><span class="line"> * @program: xxx</span><br><span class="line"> * @description: 错误状态</span><br><span class="line"> * @date: 2019-03-11 15:26</span><br><span class="line"> **/</span><br><span class="line">public enum ErrorStatus &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 参数错误</span><br><span class="line">     */</span><br><span class="line">    ILLEGAL_ARGUMENT(10001, &quot;参数错误&#123;0&#125;&#123;1&#125;&quot;),</span><br><span class="line">    /**</span><br><span class="line">     * 业务错误</span><br><span class="line">     */</span><br><span class="line">    SERVICE_EXCEPTION(10002, &quot;业务错误&quot;),</span><br><span class="line">    /**</span><br><span class="line">     * 非法的数据格式，参数没有经过校验</span><br><span class="line">     */</span><br><span class="line">    ILLEGAL_DATA(10003, &quot;数据错误&#123;0&#125;&quot;),</span><br><span class="line"></span><br><span class="line">    MULTIPART_TOO_LARGE(1004, &quot;文件太大&quot;),</span><br><span class="line">    /**</span><br><span class="line">     * 非法状态</span><br><span class="line">     */</span><br><span class="line">    ILLEGAL_STATE(10005, &quot;非法状态&quot;),</span><br><span class="line">    /**</span><br><span class="line">     * 缺少参数</span><br><span class="line">     */</span><br><span class="line">    MISSING_ARGUMENT(10006, &quot;缺少参数&quot;),</span><br><span class="line">    /**</span><br><span class="line">     * 非法访问</span><br><span class="line">     */</span><br><span class="line">    ILLEGAL_ACCESS(10007, &quot;非法访问,没有认证&quot;),</span><br><span class="line">    /**</span><br><span class="line">     * 权限不足</span><br><span class="line">     */</span><br><span class="line">    UNAUTHORIZED(10008, &quot;权限不足&quot;),</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 错误的请求</span><br><span class="line">     */</span><br><span class="line">    METHOD_NOT_ALLOWED(10009, &quot;不支持的方法&quot;),</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 参数错误</span><br><span class="line">     */</span><br><span class="line">    ILLEGAL_ARGUMENT_TYPE(10010, &quot;参数类型错误&quot;),</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 工具使用错误</span><br><span class="line">     */</span><br><span class="line">    TOOLS_ERROR(30001, &quot;工具使用错误&quot;);</span><br><span class="line"></span><br><span class="line">    private final int value;</span><br><span class="line"></span><br><span class="line">    private final String message;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ErrorStatus(int value, String message) &#123;</span><br><span class="line">        this.value = value;</span><br><span class="line">        this.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Return the integer value of this status code.</span><br><span class="line">     */</span><br><span class="line">    public int value() &#123;</span><br><span class="line">        return this.value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Return the reason phrase of this status code.</span><br><span class="line">     */</span><br><span class="line">    public String message() &#123;</span><br><span class="line">        return this.message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ll -h -i</span><br><span class="line">total 479M</span><br><span class="line">5659849 -rw-r----- 1 mart_bda mart_bda 479M Jun 13 10:57 test_file</span><br><span class="line"><span class="meta">$</span> ln test_file test_file_hardlink</span><br><span class="line"><span class="meta">$</span> ll -i -h</span><br><span class="line">total 957M</span><br><span class="line">5659849 -rw-r----- 2 mart_bda mart_bda 479M Jun 13 10:57 test_file</span><br><span class="line">5659849 -rw-r----- 2 mart_bda mart_bda 479M Jun 13 10:57 test_file_hardlink</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h1 id="使用ResponseEntity类"><a href="#使用ResponseEntity类" class="headerlink" title="使用ResponseEntity类"></a>使用ResponseEntity类</h1><p>ResponseEntity 是 包org.springframework.http下的http返回类，可以自定义code、body、headers等返回信息。其中Code必须使用 <strong>HttpStatus枚举类</strong> 定义的状态码。</p>
-<p><strong>缺点：</strong> 不能使用自定义的状态码，ResponseEntity类不支持自定义状态码，同时浏览器不能识别自定义的状态码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 简单示例</span><br><span class="line">@GetMapping(&quot;/http-code&quot;)</span><br><span class="line">public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; testHttpCode() &#123;</span><br><span class="line">    Map&lt;String, Object&gt; map = new HashMap&lt;&gt;(16);</span><br><span class="line">    map.put(&quot;msg&quot;, &quot;too big!!&quot;);</span><br><span class="line">    return new ResponseEntity&lt;&gt;(map, HttpStatus.ACCEPTED);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，两个文件的 inode 号均为 5659849。</p>
+<p>具体查看两个文件的 inode 内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> stat test_file</span><br><span class="line">  File: ‘test_file’</span><br><span class="line">  Size: 501577774 	Blocks: 979656     IO Block: 4096   regular file</span><br><span class="line">Device: 811h/2065d	Inode: 5659849     Links: 2</span><br><span class="line">Access: (0640/-rw-r-----)  Uid: ( 3457/mart_bda)   Gid: ( 3457/mart_bda)</span><br><span class="line">Access: 2018-06-13 10:57:13.961409755 +0800</span><br><span class="line">Modify: 2018-06-13 10:57:14.931383436 +0800</span><br><span class="line">Change: 2018-06-13 10:58:11.382851699 +0800</span><br><span class="line"> Birth: -</span><br><span class="line"><span class="meta">$</span> stat test_file_hardlink </span><br><span class="line">  File: ‘test_file_hardlink’</span><br><span class="line">  Size: 501577774 	Blocks: 979656     IO Block: 4096   regular file</span><br><span class="line">Device: 811h/2065d	Inode: 5659849     Links: 2</span><br><span class="line">Access: (0640/-rw-r-----)  Uid: ( 3457/mart_bda)   Gid: ( 3457/mart_bda)</span><br><span class="line">Access: 2018-06-13 10:57:13.961409755 +0800</span><br><span class="line">Modify: 2018-06-13 10:57:14.931383436 +0800</span><br><span class="line">Change: 2018-06-13 10:58:11.382851699 +0800</span><br><span class="line"> Birth: -</span><br></pre></td></tr></table></figure>
 
-<p>收到返回的内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Request URL: http://localhost:9001/http-code</span><br><span class="line">Request Method: GET</span><br><span class="line">Status Code: 202 </span><br><span class="line">Remote Address: [::1]:9001</span><br><span class="line">Referrer Policy: no-referrer-when-downgrade</span><br><span class="line"></span><br><span class="line"># body中内容 </span><br><span class="line">&#123;&quot;msg&quot;:&quot;too big!!&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，两个文件的 inode 内容完全相同，且 <strong>Links 变成了 2</strong>。<strong>修改</strong>任何一个文件名的内容，另一个文件名的内容也<strong>会同时改变</strong>，因为访问的就是硬盘中的同一块数据。</p>
+<p>如果再将 test_file_hardlink <strong>删掉</strong>，会使得 <strong>Links 变回 1</strong>。当这个值减到 0 时，说明没有文件名指向这个 inode，系统就会回收这个号码，以及所对应的 block 区域。</p>
+<p>另外，对于目录的链接数，创建一个目录时，默认会生成两个目录项：<strong>. 和 .. 前者的 inode 号就是当前目录的 inode 号，等同于当前目录的硬链接；后者的 inode 号是父目录的 inode 号，等同于父目录的硬链接</strong>。</p>
+<p>因此，任何一个目录的硬链接总数，总是等于 2 加上它的子目录总数（含隐藏目录，且除去. 和 ..）。</p>
+<h3 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h3><p>软链接也可以通过不同的文件名访问同一块数据，但是与硬链接不同的是，<strong>两个文件名的 inode 是不一样的</strong>。</p>
+<p>那如何访问同一块区域呢？</p>
+<p>比如文件 A 是文件 B 的软连接，那么<strong>文件 A 的内容存放的是文件 B 的路径名</strong>（可以通过这个找到文件 B 的目录项）。因此访问 A 时，会读取文件 B 的路径，进而读取文件 B 的内容。这样，对外表现来看，文件 A 和文件 B 的内容就相同了。<strong>类似于 windows 系统下的快捷方式</strong>。</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3XHG4O.png" alt="3XHG4O.png"></p>
+<h4 id="举个栗子-1"><a href="#举个栗子-1" class="headerlink" title="举个栗子"></a>举个栗子</h4><p>建立软链接的命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s [source file] [new file]</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h1 id="使用注解和通用返回类"><a href="#使用注解和通用返回类" class="headerlink" title="使用注解和通用返回类"></a>使用注解和通用返回类</h1><p><strong>@ResponseStatus(value = HttpStatus.UNAUTHORIZED)</strong> 可以指定返回的状态码。配合第一个通用返回类可以达到浏览器识别我们定义的状态码，同时我们自定义属于业务的特定的返回code，msg等。</p>
-<p><strong>缺点：</strong> 编码复杂的提高，需要提前规划哪些自定义的code属于哪个HttpStatus中的状态码。响应状态码，范围放大到一个请求Mapping，太宽泛。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 简单示例</span><br><span class="line">@GetMapping(&quot;/http-code-2&quot;)</span><br><span class="line">@ResponseStatus(value = HttpStatus.UNAUTHORIZED)</span><br><span class="line">public Result testRes() &#123;</span><br><span class="line">    return Result.ok(&quot;未授权！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ll</span><br><span class="line">total 489824</span><br><span class="line">-rw-r----- 1 mart_bda mart_bda 501577774 Jun 13 11:21 test_file</span><br><span class="line"><span class="meta">$</span> ln -s test_file test_file_soft</span><br><span class="line"><span class="meta">$</span> ll -h -i</span><br><span class="line">total 479M</span><br><span class="line">5659853 -rw-r----- 1 mart_bda mart_bda 479M Jun 13 11:21 test_file</span><br><span class="line">5659854 lrwxrwxrwx 1 mart_bda mart_bda    9 Jun 13 11:22 test_file_soft -&gt; test_file</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h1 id="使用ResponseEntity和通用返回类"><a href="#使用ResponseEntity和通用返回类" class="headerlink" title="使用ResponseEntity和通用返回类"></a>使用ResponseEntity和通用返回类</h1><p>既可以自定义符合业务的code、data、msg而且可以使用浏览器支持的状态码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;/http-code&quot;)</span><br><span class="line">public ResponseEntity&lt;Result&gt; testHttpCode() &#123;</span><br><span class="line">    return new ResponseEntity&lt;&gt;(Result.ok().msg(&quot;hei 哈！&quot;), HttpStatus.ACCEPTED);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果是对文件夹简历软链接，则为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /tmp/test_directory ./</span><br></pre></td></tr></table></figure>
+
+<p>会自动地在当前目录建立一个文件夹 test_directory ，并指向 /tmp/test_directory</p>
+<ul>
+<li>两个文件的 inode 号是不同的。</li>
+<li>既然文件 A 是依赖文件 B 存在的，那么如果删除了文件 B，打开文件 A 就会报错：No such file or directory；</li>
+<li>如果删除了文件 A，则对文件 B 的打开无影响，因为只是删除了“快捷方式”而已。</li>
+<li>软连接的建立，不会影响到文件 B 的 inode 的任何信息，包括 Links。</li>
+</ul>
+<h3 id="硬链接和软链接的不同"><a href="#硬链接和软链接的不同" class="headerlink" title="硬链接和软链接的不同"></a>硬链接和软链接的不同</h3><ol>
+<li>本质不同：硬链接是指向同一个文件，软链接指向的不是同一个文件。</li>
+<li>删除时：硬链接不受影响，软链接失效</li>
+<li>创建链接时：创建硬链接链接数加1，创建软链接连接数不变</li>
+<li>是否可以跨分区：硬链接不可以跨分区，软链接可以跨分区</li>
+<li>目录是否可以创建链接：<strong>硬链接不可以对目录创建，软链接可以对目录创建</strong></li>
+<li>硬链接的inode号相同，软链接inode号不同</li>
+</ol>
+<h3 id="硬链接和软链接的占用空间分析"><a href="#硬链接和软链接的占用空间分析" class="headerlink" title="硬链接和软链接的占用空间分析"></a>硬链接和软链接的占用空间分析</h3><p>硬链接不占用磁盘空间，软链接占用的空间只是存储路径所占用的极小空间。</p>
+<blockquote>
+<p>ll –h 或者 ls –h这命令进行统计文件总大小的时候并不是从磁盘进行统计的，而是根据文件属性中的大小叠加得来的。而硬链接的文件属性中的大小就是就是inode号对应的数据块的大小，所以total中进行统计就把各个文件属性中的大小加起来作为总和，这种统计是不标准，也不具有代表性的，</p>
+<p>真正的查看某个文件夹占用磁盘空间大小命令是：du –h   这个命令是从磁盘上进行统计，不会被文件的属性中大小影响，所以更准确</p>
+</blockquote>
+
       
     </div>
     
@@ -546,12 +649,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/web-response/">web通用返回对象</a></p>
+  <p><span>本文标题:</span><a href="/linux-inode/">硬链接、软连接引出的inode</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Big Jelly 的个人博客">Big Jelly</a></p>
-  <p><span>发布时间:</span>2019年04月04日 - 18:26</p>
-  <p><span>最后更新:</span>2020年03月07日 - 17:13</p>
-  <p><span>原始链接:</span><a href="/web-response/" title="web通用返回对象">https://jelly54.github.io/web-response/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://jelly54.github.io/web-response/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年11月27日 - 17:15</p>
+  <p><span>最后更新:</span>2020年03月07日 - 17:18</p>
+  <p><span>原始链接:</span><a href="/linux-inode/" title="硬链接、软连接引出的inode">https://jelly54.github.io/linux-inode/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://jelly54.github.io/linux-inode/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -610,9 +713,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java-web/" rel="tag"><i class="fa fa-tag"></i> java web</a>
+            <a href="/tags/原理/" rel="tag"><i class="fa fa-tag"></i> 原理</a>
           
-            <a href="/tags/构建者模式/" rel="tag"><i class="fa fa-tag"></i> 构建者模式</a>
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/操作系统/" rel="tag"><i class="fa fa-tag"></i> 操作系统</a>
           
         </div>
       
@@ -625,8 +730,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/mybatis-param/" rel="next" title="mybatis如何遍历参数为Map的key和value">
-                <i class="fa fa-chevron-left"></i> mybatis如何遍历参数为Map的key和value
+              <a href="/java-dynamicProxy/" rel="next" title="010动态代理简介">
+                <i class="fa fa-chevron-left"></i> 010动态代理简介
               </a>
             
           </div>
@@ -634,10 +739,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/thread-communicate/" rel="prev" title="线程间的通信、同步方式与进程间通信方式">
-                线程间的通信、同步方式与进程间通信方式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -833,7 +934,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#web通用返回对象"><span class="nav-number">1.</span> <span class="nav-text">web通用返回对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Result类属性"><span class="nav-number">1.1.</span> <span class="nav-text">Result类属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Result的构建者"><span class="nav-number">1.2.</span> <span class="nav-text">使用Result的构建者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">1.3.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">1.4.</span> <span class="nav-text">源码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用ResponseEntity类"><span class="nav-number">2.</span> <span class="nav-text">使用ResponseEntity类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用注解和通用返回类"><span class="nav-number">3.</span> <span class="nav-text">使用注解和通用返回类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用ResponseEntity和通用返回类"><span class="nav-number">4.</span> <span class="nav-text">使用ResponseEntity和通用返回类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#inode定义"><span class="nav-number">1.</span> <span class="nav-text">inode定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#找寻文件"><span class="nav-number">1.1.</span> <span class="nav-text">找寻文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inode内容"><span class="nav-number">1.2.</span> <span class="nav-text">inode内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inode大小"><span class="nav-number">1.3.</span> <span class="nav-text">inode大小</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件操作对-inode-的影响"><span class="nav-number">2.</span> <span class="nav-text">文件操作对 inode 的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cp-命令"><span class="nav-number">2.1.</span> <span class="nav-text">cp 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm-命令"><span class="nav-number">2.2.</span> <span class="nav-text">rm 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mv-命令"><span class="nav-number">2.3.</span> <span class="nav-text">mv 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ln-命令"><span class="nav-number">2.4.</span> <span class="nav-text">ln 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬链接"><span class="nav-number">2.4.1.</span> <span class="nav-text">硬链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举个栗子"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">举个栗子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软链接"><span class="nav-number">2.4.2.</span> <span class="nav-text">软链接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举个栗子-1"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">举个栗子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬链接和软链接的不同"><span class="nav-number">2.4.3.</span> <span class="nav-text">硬链接和软链接的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬链接和软链接的占用空间分析"><span class="nav-number">2.4.4.</span> <span class="nav-text">硬链接和软链接的占用空间分析</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
