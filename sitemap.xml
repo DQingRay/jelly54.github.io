@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jelly54.github.io/java-dynamicProxy/</loc>
+    
+    <lastmod>2020-03-31T14:02:36.312Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jelly54.github.io/java-reflect/</loc>
+    
+    <lastmod>2020-03-31T13:50:09.857Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jelly54.github.io/mysql-b-tree/</loc>
     
     <lastmod>2020-03-31T13:40:19.514Z</lastmod>
@@ -61,20 +75,6 @@
     <loc>https://jelly54.github.io/mysql-index/</loc>
     
     <lastmod>2020-03-31T13:28:05.382Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jelly54.github.io/java-dynamicProxy/</loc>
-    
-    <lastmod>2020-03-31T13:21:41.978Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jelly54.github.io/java-reflect/</loc>
-    
-    <lastmod>2020-03-31T13:21:31.675Z</lastmod>
     
   </url>
   
