@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jelly54.github.io/java-dynamicProxy/</loc>
+    <loc>https://jelly54.github.io/java-dynamic-proxy/</loc>
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/java-reflect/</loc>
@@ -43,7 +43,7 @@
     <loc>https://jelly54.github.io/java-serialize/</loc>
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/java-equalHashcode/</loc>
+    <loc>https://jelly54.github.io/java-equal-hashcode/</loc>
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/java-static/</loc>
@@ -52,10 +52,10 @@
     <loc>https://jelly54.github.io/java-finalxxx/</loc>
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/java-autoBox/</loc>
+    <loc>https://jelly54.github.io/java-auto-box/</loc>
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/java-designParten/</loc>
+    <loc>https://jelly54.github.io/java-design-parten/</loc>
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/mysql-handbook/</loc>
@@ -82,10 +82,10 @@
     <loc>https://jelly54.github.io/web-response/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/tool-IDEA-Gradle/</loc>
+    <loc>https://jelly54.github.io/tool-IDEA-gradle/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/tool-IDEA-Lombok/</loc>
+    <loc>https://jelly54.github.io/tool-IDEA-lombok/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/thread-communicate/</loc>
@@ -112,7 +112,7 @@
     <loc>https://jelly54.github.io/springb-getpost/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/springb-enumGender/</loc>
+    <loc>https://jelly54.github.io/springb-enum-gender/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/shiro-principle/</loc>
@@ -124,7 +124,7 @@
     <loc>https://jelly54.github.io/server-UltraISO/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/server-R740-Centos/</loc>
+    <loc>https://jelly54.github.io/server-r740-centos/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/net-protocol-tcp/</loc>
@@ -145,10 +145,10 @@
     <loc>https://jelly54.github.io/ceph-principle/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/ceph-cros/</loc>
+    <loc>https://jelly54.github.io/alg-timeComplex/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/alg-timeComplex/</loc>
+    <loc>https://jelly54.github.io/ceph-cros/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/alg-simpleSort/</loc>
