@@ -1,10 +1,10 @@
-https://jelly54.github.io/redis-skiplist-why/
+https://jelly54.github.io/mysql-handbook/
+https://jelly54.github.io/mysql-install/
+https://jelly54.github.io/mysql-slow-query/
+https://jelly54.github.io/mysql-query-optimization/
+https://jelly54.github.io/mysql-index/
 https://jelly54.github.io/redis-learn/
+https://jelly54.github.io/redis-skiplist-why/
 https://jelly54.github.io/redis-cluster/
 https://jelly54.github.io/linux-inode/
 https://jelly54.github.io/java-dynamicProxy/
-https://jelly54.github.io/java-reflect/
-https://jelly54.github.io/java-exception/
-https://jelly54.github.io/java-interface2class/
-https://jelly54.github.io/java-serialize/
-https://jelly54.github.io/java-equalHashcode/

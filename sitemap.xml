@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jelly54.github.io/mysql-slow-query/</loc>
+    
+    <lastmod>2020-03-31T13:15:17.237Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jelly54.github.io/mysql-query-optimization/</loc>
+    
+    <lastmod>2020-03-31T13:14:40.901Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jelly54.github.io/mysql-index/</loc>
+    
+    <lastmod>2020-03-31T13:14:18.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jelly54.github.io/mysql-handbook/</loc>
+    
+    <lastmod>2020-03-31T13:10:22.289Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jelly54.github.io/mysql-install/</loc>
+    
+    <lastmod>2020-03-31T13:04:19.971Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jelly54.github.io/redis-cluster/</loc>
     
-    <lastmod>2020-03-31T12:44:00.084Z</lastmod>
+    <lastmod>2020-03-31T13:01:25.286Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jelly54.github.io/redis-skiplist-why/</loc>
+    
+    <lastmod>2020-03-31T12:58:43.242Z</lastmod>
     
   </url>
   
@@ -12,13 +54,6 @@
     <loc>https://jelly54.github.io/redis-learn/</loc>
     
     <lastmod>2020-03-31T12:43:43.158Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jelly54.github.io/redis-skiplist-why/</loc>
-    
-    <lastmod>2020-03-31T12:42:55.615Z</lastmod>
     
   </url>
   

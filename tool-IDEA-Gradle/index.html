@@ -528,11 +528,11 @@
 <ol start="3">
 <li>使用 <strong>gradle -v</strong> 命令查看：</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gradle -v</span><br><span class="line"></span><br><span class="line">Welcome to Gradle 4.9!</span><br><span class="line"></span><br><span class="line">Here are the highlights of this release:</span><br><span class="line"> - Experimental APIs for creating and configuring tasks lazily</span><br><span class="line"> - Pass arguments to JavaExec via CLI</span><br><span class="line"> - Auxiliary publication dependency support for multi-project builds</span><br><span class="line"> - Improved dependency insight report</span><br><span class="line"></span><br><span class="line">For more details see https://docs.gradle.org/4.9/release-notes.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 4.9</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2018-07-16 08:14:03 UTC</span><br><span class="line">Revision:     efcf8c1cf533b03c70f394f270f46a174c738efc</span><br><span class="line"></span><br><span class="line">Kotlin DSL:   0.18.4</span><br><span class="line">Kotlin:       1.2.41</span><br><span class="line">Groovy:       2.4.12</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.11 compiled on March 23 2018</span><br><span class="line">JVM:          1.8.0_102 (Oracle Corporation 25.102-b14)</span><br><span class="line">OS:           Windows 10 10.0 amd64</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gradle -v</span></span><br><span class="line"></span><br><span class="line">Welcome to Gradle 4.9!</span><br><span class="line"></span><br><span class="line">Here are the highlights of this release:</span><br><span class="line"> - Experimental APIs for creating and configuring tasks lazily</span><br><span class="line"> - Pass arguments to JavaExec via CLI</span><br><span class="line"> - Auxiliary publication dependency support for multi-project builds</span><br><span class="line"> - Improved dependency insight report</span><br><span class="line"></span><br><span class="line">For more details see https://docs.gradle.org/4.9/release-notes.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 4.9</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2018-07-16 08:14:03 UTC</span><br><span class="line">Revision:     efcf8c1cf533b03c70f394f270f46a174c738efc</span><br><span class="line"></span><br><span class="line">Kotlin DSL:   0.18.4</span><br><span class="line">Kotlin:       1.2.41</span><br><span class="line">Groovy:       2.4.12</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.11 compiled on March 23 2018</span><br><span class="line">JVM:          1.8.0_102 (Oracle Corporation 25.102-b14)</span><br><span class="line">OS:           Windows 10 10.0 amd64</span><br></pre></td></tr></table></figure>
 
 <ol start="4">
 <li><p>提高编译速度<br>在咱们的gradle缓存.gradle目录下创建一个gradle.properties 文件 ，再打开该文件在其中添加如下语句， <strong>可以提高编译速度。</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>开启线程守护，第一次编译时开线程，之后就不会再开了</span><br><span class="line">org.gradle.daemon=true</span><br><span class="line"><span class="meta">#</span>配置编译时的虚拟机大小</span><br><span class="line">org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</span><br><span class="line"><span class="meta">#</span>开启并行编译，相当于多条线程再走</span><br><span class="line">org.gradle.parallel=true</span><br><span class="line"><span class="meta">#</span>启用新的孵化模式</span><br><span class="line">org.gradle.configureondemand=true</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">开启线程守护，第一次编译时开线程，之后就不会再开了</span></span><br><span class="line">org.gradle.daemon=true</span><br><span class="line"><span class="meta">#</span><span class="bash">配置编译时的虚拟机大小</span></span><br><span class="line">org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</span><br><span class="line"><span class="meta">#</span><span class="bash">开启并行编译，相当于多条线程再走</span></span><br><span class="line">org.gradle.parallel=true</span><br><span class="line"><span class="meta">#</span><span class="bash">启用新的孵化模式</span></span><br><span class="line">org.gradle.configureondemand=true</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置远程阿里云仓库</p>
 </li>
@@ -763,7 +763,7 @@ gradle clean build --refresh-dependencies     //刷新Gradle依赖缓存</code><
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -774,7 +774,7 @@ gradle clean build --refresh-dependencies     //刷新Gradle依赖缓存</code><
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -785,7 +785,7 @@ gradle clean build --refresh-dependencies     //刷新Gradle依赖缓存</code><
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -913,7 +913,7 @@ gradle clean build --refresh-dependencies     //刷新Gradle依赖缓存</code><
 		
 			<span class="post-meta-item-text">Site words total count&#58;</span>
 		
-		<span title="Site words total count">124.7k</span>
+		<span title="Site words total count">132.9k</span>
 	
   
 	
