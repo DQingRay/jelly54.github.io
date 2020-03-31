@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jelly54.github.io/redis-cluster/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/redis-learn/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/redis-skiplist-why/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
     <loc>https://jelly54.github.io/linux-inode/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
@@ -73,22 +82,22 @@
     <loc>https://jelly54.github.io/java-reflect/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/java-finalxxx/</loc>
-    <lastmod>2020-03-07</lastmod>
-  </url>  <url>
     <loc>https://jelly54.github.io/java-interface2class/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/java-equalHashcode/</loc>
+    <loc>https://jelly54.github.io/java-finalxxx/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/java-exception/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
-    <loc>https://jelly54.github.io/java-designParten/</loc>
+    <loc>https://jelly54.github.io/java-equalHashcode/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/java-dynamicProxy/</loc>
+    <lastmod>2020-03-07</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/java-designParten/</loc>
     <lastmod>2020-03-07</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/hello-stranger/</loc>
