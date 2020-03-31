@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jelly54.github.io/mysql-b-tree/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/mysql-lock/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/mysql-master-slave/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/mysql-global-log/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/mysql-show-profile/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/mysql-bulk/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/mysql-slow-query/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/mysql-query-optimization/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
+    <loc>https://jelly54.github.io/mysql-index/</loc>
+    <lastmod>2020-03-31</lastmod>
+  </url>  <url>
     <loc>https://jelly54.github.io/java-dynamicProxy/</loc>
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
@@ -29,15 +56,6 @@
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/java-designParten/</loc>
-    <lastmod>2020-03-31</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/mysql-slow-query/</loc>
-    <lastmod>2020-03-31</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/mysql-query-optimization/</loc>
-    <lastmod>2020-03-31</lastmod>
-  </url>  <url>
-    <loc>https://jelly54.github.io/mysql-index/</loc>
     <lastmod>2020-03-31</lastmod>
   </url>  <url>
     <loc>https://jelly54.github.io/mysql-handbook/</loc>

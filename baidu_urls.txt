@@ -1,10 +1,10 @@
-https://jelly54.github.io/mysql-handbook/
-https://jelly54.github.io/mysql-install/
+https://jelly54.github.io/mysql-b-tree/
+https://jelly54.github.io/mysql-master-slave/
+https://jelly54.github.io/mysql-lock/
+https://jelly54.github.io/mysql-global-log/
+https://jelly54.github.io/mysql-show-profile/
+https://jelly54.github.io/mysql-bulk/
 https://jelly54.github.io/mysql-slow-query/
 https://jelly54.github.io/mysql-query-optimization/
 https://jelly54.github.io/mysql-index/
-https://jelly54.github.io/redis-learn/
-https://jelly54.github.io/redis-skiplist-why/
-https://jelly54.github.io/redis-cluster/
-https://jelly54.github.io/linux-inode/
-https://jelly54.github.io/java-dynamicProxy/
+https://jelly54.github.io/mysql-handbook/
