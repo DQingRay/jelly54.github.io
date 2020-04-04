@@ -132,7 +132,7 @@
 
 
 
-  <meta name="keywords" content="原理,redis,">
+  <meta name="keywords" content="缓存穿透,缓存雪崩,原理,redis,主从复制,">
 
 
 
@@ -146,7 +146,7 @@
 
 
 <meta name="description" content="Redis 是什么Redis: REmote DIctionary Server(远程字典服务器)完全开源免费，C语言编写遵守BSD协议，一个高性能的（key/value)分布式内存数据库。基于内存运行并支持持久化的NOSQL数据库被称为数据结构服务器。">
-<meta name="keywords" content="原理,redis">
+<meta name="keywords" content="缓存穿透,缓存雪崩,原理,redis,主从复制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis基础、原理全覆盖">
 <meta property="og:url" content="https://jelly54.github.io/redis-learn/index.html">
@@ -168,7 +168,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/28/le7kOH.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/28/le7PSO.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/12/28/le79fK.png">
-<meta property="og:updated_time" content="2020-03-31T12:43:43.158Z">
+<meta property="og:updated_time" content="2020-04-04T12:25:45.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis基础、原理全覆盖">
 <meta name="twitter:description" content="Redis 是什么Redis: REmote DIctionary Server(远程字典服务器)完全开源免费，C语言编写遵守BSD协议，一个高性能的（key/value)分布式内存数据库。基于内存运行并支持持久化的NOSQL数据库被称为数据结构服务器。">
@@ -859,7 +859,7 @@
   <p><span>本文标题:</span><a href="/redis-learn/">Redis基础、原理全覆盖</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Big Jelly 的个人博客">Big Jelly</a></p>
   <p><span>发布时间:</span>2019年12月22日 - 17:32</p>
-  <p><span>最后更新:</span>2020年03月31日 - 20:43</p>
+  <p><span>最后更新:</span>2020年04月04日 - 20:25</p>
   <p><span>原始链接:</span><a href="/redis-learn/" title="Redis基础、原理全覆盖">https://jelly54.github.io/redis-learn/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://jelly54.github.io/redis-learn/" aria-label="复制成功！"></i></span>
   </p>
@@ -920,9 +920,15 @@
       
         <div class="post-tags">
           
+            <a href="/tags/缓存穿透/" rel="tag"><i class="fa fa-tag"></i> 缓存穿透</a>
+          
+            <a href="/tags/缓存雪崩/" rel="tag"><i class="fa fa-tag"></i> 缓存雪崩</a>
+          
             <a href="/tags/原理/" rel="tag"><i class="fa fa-tag"></i> 原理</a>
           
             <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+          
+            <a href="/tags/主从复制/" rel="tag"><i class="fa fa-tag"></i> 主从复制</a>
           
         </div>
       
@@ -1035,7 +1041,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1046,7 +1052,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1057,7 +1063,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1185,7 +1191,7 @@
 		
 			<span class="post-meta-item-text">Site words total count&#58;</span>
 		
-		<span title="Site words total count">137.5k</span>
+		<span title="Site words total count">140.8k</span>
 	
   
 	
