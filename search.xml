@@ -297,9 +297,9 @@
         <category>Java基础</category>
       </categories>
       <tags>
+        <tag>异常</tag>
         <tag>Java关键字</tag>
         <tag>垃圾回收</tag>
-        <tag>异常</tag>
       </tags>
   </entry>
   <entry>
@@ -610,9 +610,9 @@
         <category>MyBatis</category>
       </categories>
       <tags>
-        <tag>plugin</tag>
         <tag>框架</tag>
         <tag>mybatis</tag>
+        <tag>plugin</tag>
       </tags>
   </entry>
   <entry>
